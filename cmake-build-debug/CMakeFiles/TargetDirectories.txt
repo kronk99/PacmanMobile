@@ -1,0 +1,3 @@
+/home/huevitoentorta/Documentos/C++/PacmanMobile/cmake-build-debug/CMakeFiles/PacmanMobile.dir
+/home/huevitoentorta/Documentos/C++/PacmanMobile/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/huevitoentorta/Documentos/C++/PacmanMobile/cmake-build-debug/CMakeFiles/rebuild_cache.dir
