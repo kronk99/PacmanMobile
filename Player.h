@@ -21,6 +21,14 @@ public:
     void Update();
     void renderAll();
     SDL_Rect*  getRect();
+
+    void moverRight();
+
+    void moverLeft();
+
+    void moverDown();
+
+    void moverUp();
 };
 
 

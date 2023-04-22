@@ -64,19 +64,39 @@ void Game::render() {
     Mapa->renderMap();
     player->renderAll();
     //Mapa->renderOne();
-    //Fases->getFase().moveNrender();
     SDL_RenderPresent(renderer);
-    /*aca debo de poner load balas a cada rato , ese metodo debe de checkear
-     * la lista de cartuchos, agarrar una bala y usarla.*/
+
 }
 //codigo funcional ahora por alguna razon
 void Game::eventHandler() { //no funciona de momento bien
     //funcion que maneja eventos
-    SDL_Event evento ;
     //SDL_PollEvent(&evento); //investigar que hace esto
     while(SDL_PollEvent(&evento)){
         if(evento.type == SDL_QUIT || evento.type == SDL_WINDOWEVENT_CLOSE){
             isRunning = false;
+        }
+        /*el siguiente codigo es un tipo de approach creado por mi persona
+         * el detalle esta en que no se si con colisiones servia, en el video
+         * de ejemplos de manejador de ejemplos en vez de decirle que mueva 1 pixel
+         * al jugador, el jugador siempre se mueve ,pero el codigo es multiplicado
+         * por una velocidad, si la flecha se presiona la velocidad es x en una direccion
+         * y si la tecla no esta hacia arriba (keyup) pone la velocidad en 0, probar ese
+         * approach si el codigo no funciona con colisones.*/
+        if(evento.type==SDL_KEYDOWN){
+            switch (evento.key.keysym.sym) {
+                case SDLK_w:
+                    player->moverUp();
+                    break;
+                case SDLK_a:
+                    player->moverLeft();
+                    break;
+                case SDLK_d:
+                    player->moverRight();
+                    break;
+                case SDLK_s:
+                    player->moverDown();
+                    break;
+            }
         }
     }
     /*
@@ -110,19 +130,14 @@ bool Game::running() {
     return isRunning;
 }
 void Game::verifyCollision(){
-    /*
-    int length = Fases->getFase().getSIze();
-    enemyList enemigoxd = Fases->getFase();
-    cout<<"el tamaño es "<<length<<endl;
-    for(int a=1; a<=length;a++){
-        cout<<"iteracion:"<<a<<endl;
-        if(SDL_HasIntersection(player->getRect(), enemigoxd.search(a)->getRect())){
-            cout << "hay colision papa" << endl;
-            enemigoxd.deleteEnemy(a);
-            break;
-            //crep que por enemigoxd no ser pointer se jode.
-        }
-    }*/
-   
-
+    //el jugador necesita moverse por la matriz de juego , esto para el
+    //pathfinding de los fantasmas, como tambien las colisiones con la comida y
+    //pared, el jugador debe de chekear colsiones arriba suyo, abajo suyo,
+    //a su izquierda y a su derecha. estas verificaciones de colisiones
+    //se deben de llamar en el event handler de movimientos
+    //tipo me muevo a la derecha, primero verifique que no hay un obstaculo
+    //si retorna false, muevase, si no , no se mueva
+    //la pregunta ahora es , como le hago para que el jugador se mueva
+    //implemente primero colisiones con pared, como pacman ignora el grid
+    //debe checkear en el cuadrante
 }

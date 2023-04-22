@@ -29,6 +29,18 @@ void Player::Update() {
 void Player::renderAll() {
     SDL_RenderCopy(render,playerSkin,&origen,&destino);
 }
+void Player::moverRight(){
+    posx+=4;
+}
+void Player::moverLeft(){
+    posx-=4;
+}
+void Player::moverUp(){
+    posy-=4;
+}
+void Player::moverDown(){
+    posy+=4;
+}
 SDL_Rect*  Player::getRect(){
     return &destino;
 }
