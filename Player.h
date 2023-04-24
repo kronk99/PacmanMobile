@@ -6,6 +6,7 @@
 #define PROYECTO1_A_D2_PLAYER_H
 #include <SDL2/SDL.h>
 #include "textureLoader.h"
+#include <iostream>
 
 class Player {
 private:
@@ -29,6 +30,9 @@ public:
     void moverDown();
 
     void moverUp();
+
+    int getY();
+    int getX();
 };
 
 

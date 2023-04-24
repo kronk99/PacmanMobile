@@ -28,8 +28,10 @@ public:
     void clean();
     void eventHandler();
     bool running();
-    void verifyCollision();
+    bool verifyCollision();
     static SDL_Event evento;
+
+    bool verifyCollision(int a, int b);
 };
 
 

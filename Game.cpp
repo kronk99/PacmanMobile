@@ -86,15 +86,27 @@ void Game::eventHandler() { //no funciona de momento bien
             switch (evento.key.keysym.sym) {
                 case SDLK_w:
                     player->moverUp();
+                    if(verifyCollision(player->getX() , player->getY())==true){
+                        player->moverDown();
+                    }
                     break;
                 case SDLK_a:
                     player->moverLeft();
+                    if(verifyCollision(player->getX() , player->getY())==true){
+                        player->moverRight();
+                    }
                     break;
                 case SDLK_d:
                     player->moverRight();
+                    if(verifyCollision(player->getX() , player->getY())==true){
+                        player->moverLeft();
+                    }
                     break;
                 case SDLK_s:
                     player->moverDown();
+                    if(verifyCollision(player->getX() , player->getY())==true){
+                        player->moverUp();
+                    }
                     break;
             }
         }
@@ -129,7 +141,18 @@ bool Game::running() {
     }*/
     return isRunning;
 }
-void Game::verifyCollision(){
+bool Game::verifyCollision(int x , int y){
+    //this is wall collision with player;
+    //hay que hacer un if para verificar que no sea una pared
+    if(Mapa->getMapa(y/24,x/24)==2){
+        cout<<"entre donde hay colision"<<endl;
+        return true;
+    }
+    else{
+        cout<<"no hay colision"<<endl;
+        return false;
+    }
+
     //el jugador necesita moverse por la matriz de juego , esto para el
     //pathfinding de los fantasmas, como tambien las colisiones con la comida y
     //pared, el jugador debe de chekear colsiones arriba suyo, abajo suyo,

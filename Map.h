@@ -15,16 +15,23 @@ private:
     SDL_Rect origen2,destino2;
     SDL_Texture *pared;
     SDL_Texture *comida;
+    int mapa[30][40];
 public:
     Map(SDL_Renderer *renderer);
 //falta un deconstructor
-    void loadMap(int array[20][20]);
+    void loadMap(int array[30][40]);
     void renderMap();
-    int mapa[20][20];
+    //int mapa[20][20];
 
     void changeMap(int fila, int col, int valtoChange);
 
     void renderOne();
+
+    SDL_Rect* getRect2();
+
+    void setX(int a, int b);
+
+    int getMapa(int a, int b);
 };
 
 

@@ -9,8 +9,8 @@ Player::Player(const char* texture , SDL_Renderer* renders) {
     //SDL_Surface* p= IMG_Load(texture);
     //playerSkin= SDL_CreateTextureFromSurface(render , p);
     //SDL_FreeSurface(p); CAMBIE all this
-    posx=96;
-    posy=96;
+    posx=48;
+    posy=48;
 //EL JUGADOR DEBE DE MOVERSE EN MULTIPLOS DE 32 PIXELES
 }
 void Player::Update() {
@@ -23,24 +23,35 @@ void Player::Update() {
 //las imagenes empiezan ancho x alto , tener cuidado con esto
     destino.x=posx; //esto deberia ser igual a la posx posy , el height y w se mantienen
     destino.y=posy;//hasta donde mover la imagen
-    destino.h=32;//reescalado de la imagen(la disminuye a 64 pixeles)
-    destino.w=32;
+    destino.h=24;//reescalado de la imagen(la disminuye a 64 pixeles)
+    destino.w=24;
+    //la imagen la agarra desde la esquina superior izquierda , es decir x=0,y=0
+    //a eso se le suman 32 para hacer el ancho y largo
 }
 void Player::renderAll() {
     SDL_RenderCopy(render,playerSkin,&origen,&destino);
 }
 void Player::moverRight(){
-    posx+=4;
+    posx+=24;
+    cout<<posx<<endl;
 }
 void Player::moverLeft(){
-    posx-=4;
+    posx-=24;
 }
 void Player::moverUp(){
-    posy-=4;
+    posy-=24;
 }
 void Player::moverDown(){
-    posy+=4;
+    posy+=24;
+    cout<<posy<<endl;
 }
 SDL_Rect*  Player::getRect(){
     return &destino;
+}
+int Player::getX(){
+    cout<<"el X es"<<posx<<endl;
+    return this->posx;
+}
+int Player::getY(){
+    return this->posy;
 }
