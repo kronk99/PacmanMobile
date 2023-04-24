@@ -89,22 +89,36 @@ void Game::eventHandler() { //no funciona de momento bien
                     if(verifyCollision(player->getX() , player->getY())==true){
                         player->moverDown();
                     }
+                    if(verifyCollision(player->getX()+16 , player->getY())==true){
+                        player->moverDown();
+                    }
                     break;
                 case SDLK_a:
                     player->moverLeft();
                     if(verifyCollision(player->getX() , player->getY())==true){
                         player->moverRight();
                     }
+                    if(verifyCollision(player->getX() , player->getY()+16)==true){
+                        player->moverRight();
+                    }
                     break;
                 case SDLK_d:
-                    player->moverRight();
-                    if(verifyCollision(player->getX() , player->getY())==true){
+                    //CODIGO FUNCIONAL DE MOMENTO.
+                    player->moverRight(); //no se por que es 16 el que sirve.
+                    if(verifyCollision(player->getX()+16 , player->getY())==true){
+                        player->moverLeft();
+                    }
+                    if(verifyCollision(player->getX()+16 , player->getY()+16)==true){
                         player->moverLeft();
                     }
                     break;
                 case SDLK_s:
-                    player->moverDown();
-                    if(verifyCollision(player->getX() , player->getY())==true){
+                    //Codigo funcional
+                    player->moverDown(); //modifique esto para colisiones abajo
+                    if(verifyCollision(player->getX() , player->getY()+16)==true){
+                        player->moverUp();
+                    }
+                    if(verifyCollision(player->getX()+16 , player->getY()+16)==true){
                         player->moverUp();
                     }
                     break;

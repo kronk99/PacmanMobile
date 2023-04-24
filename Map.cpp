@@ -89,7 +89,8 @@ void Map::renderMap() {
             destino2.y=row*24;
             switch (type) {
                 case 0:
-
+                    destino.x=colum*24;
+                    destino.y=row*24;
                     break;
                 case 1:
                     SDL_RenderCopy(renderer,comida,&origen,&destino);

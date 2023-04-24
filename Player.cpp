@@ -32,17 +32,24 @@ void Player::renderAll() {
     SDL_RenderCopy(render,playerSkin,&origen,&destino);
 }
 void Player::moverRight(){
-    posx+=24;
+    posx+=12;
     cout<<posx<<endl;
 }
 void Player::moverLeft(){
-    posx-=24;
+    posx-=12; //esto debe ser un multiplo o submultiplo del valor al que se
+    //reescalan las imagenes , para este caso 24, ese multiplo o submultiplo es la
+    //velocidad, en el checkeador de colisiones , la cantidad que suma es el doble
+    //de la velocidad, si no, es un valor fijo encontrado de manera a prueba y error
+    //asumo que tendra alguna relacion con el re-escalado de la imagen , para este caso
+    //re-escalado 24- suma en colisiones =16
+    //confirmado , probe con 8 4 y 12 como velocidades , por lo tanto esto es util
+    //para el movimiento de los fantasmas, velocidades disponibles entonces ; 4,8,12
 }
 void Player::moverUp(){
-    posy-=24;
+    posy-=12;
 }
 void Player::moverDown(){
-    posy+=24;
+    posy+=12;
     cout<<posy<<endl;
 }
 SDL_Rect*  Player::getRect(){
