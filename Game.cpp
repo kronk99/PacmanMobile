@@ -43,6 +43,7 @@ void Game::update() {
     //ACTUALIZA LA POSICION Y MOVIMIENTO DE IMAGENES.
     //cout<<"metodo update"<<endl;
     player->Update();
+    playerMappos();
     //verifyCollision();
     //verifyCollision();
     //Mapa->loadMap() //esto mas adelante va a cambiar el arraytype;
@@ -88,39 +89,51 @@ void Game::eventHandler() { //no funciona de momento bien
                     player->moverUp();
                     if(verifyCollision(player->getX() , player->getY())==true){
                         player->moverDown();
+                        break;
                     }
                     if(verifyCollision(player->getX()+16 , player->getY())==true){
                         player->moverDown();
+                        break;
                     }
+                    player->sumposyCounter();
                     break;
                 case SDLK_a:
                     player->moverLeft();
                     if(verifyCollision(player->getX() , player->getY())==true){
                         player->moverRight();
+                        break;
                     }
                     if(verifyCollision(player->getX() , player->getY()+16)==true){
                         player->moverRight();
+                        break;
                     }
+                    player->sumposCounter();
                     break;
                 case SDLK_d:
                     //CODIGO FUNCIONAL DE MOMENTO.
                     player->moverRight(); //no se por que es 16 el que sirve.
                     if(verifyCollision(player->getX()+16 , player->getY())==true){
                         player->moverLeft();
+                        break;
                     }
                     if(verifyCollision(player->getX()+16 , player->getY()+16)==true){
                         player->moverLeft();
+                        break;
                     }
+                    player->sumposCounter();
                     break;
                 case SDLK_s:
                     //Codigo funcional
                     player->moverDown(); //modifique esto para colisiones abajo
                     if(verifyCollision(player->getX() , player->getY()+16)==true){
                         player->moverUp();
+                        break;
                     }
                     if(verifyCollision(player->getX()+16 , player->getY()+16)==true){
                         player->moverUp();
+                        break;
                     }
+                    player->sumposyCounter();
                     break;
             }
         }
@@ -177,4 +190,11 @@ bool Game::verifyCollision(int x , int y){
     //la pregunta ahora es , como le hago para que el jugador se mueva
     //implemente primero colisiones con pared, como pacman ignora el grid
     //debe checkear en el cuadrante
+}
+
+void Game::playerMappos() {
+if(player->checkCOunter()==true && player->checkyCounter()==true){
+    cout<<"ESTOY en una casilla"<<endl;
+    player->setALlposfalse();
+}
 }

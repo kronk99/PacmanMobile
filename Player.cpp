@@ -62,3 +62,38 @@ int Player::getX(){
 int Player::getY(){
     return this->posy;
 }
+
+void Player::sumposCounter() {
+    posCounter++;
+    cout<<"se sumo posx"<<endl;
+}
+bool Player::checkCOunter() {
+    if(posCounter%2==0){ //esto es 2 por que el jugador se mueve 12 pixeles, 12+12 24
+        //2 veces 24, entonces el contador es 2 para decir que ya esta dentro de una
+        //celda y no por encima.
+        return true;
+
+    }
+    else{
+        return false;
+    }
+}
+void Player::sumposyCounter() {
+    posyCounter++;
+    cout<<"se sumo posy"<<endl;
+}
+bool Player::checkyCounter() {
+    if(posyCounter %2 ==0){ //esto es 2 por que el jugador se mueve 12 pixeles, 12+12 24
+        //2 veces 24, entonces el contador es 2 para decir que ya esta dentro de una
+        //celda y no por encima.
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+void Player::setALlposfalse() {
+    posCounter=0;
+    posyCounter=0;
+}

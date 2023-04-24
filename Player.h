@@ -15,6 +15,8 @@ private:
     SDL_Texture* playerSkin;
     SDL_Rect origen , destino;
     SDL_Renderer* render;
+    int posCounter;
+    int posyCounter;
 
 
 public:
@@ -33,6 +35,11 @@ public:
 
     int getY();
     int getX();
+    void sumposCounter();
+    bool checkCOunter();
+    void sumposyCounter();
+    bool checkyCounter();
+    void setALlposfalse();
 };
 
 

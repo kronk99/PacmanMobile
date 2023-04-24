@@ -28,7 +28,7 @@ public:
     void clean();
     void eventHandler();
     bool running();
-    bool verifyCollision();
+    void playerMappos();
     static SDL_Event evento;
 
     bool verifyCollision(int a, int b);
