@@ -5,6 +5,8 @@
 using namespace std;
 #include "Game.h"
 #include <iostream>
+#include <random>
+
 SDL_Rect Origen ,DEST ;
 SDL_Texture *textures;
 SDL_Event Game::evento;
@@ -33,8 +35,8 @@ void Game::init(const char *title, int posx, int posy, int width, int lenght, bo
     //player = new Player("../textures/a.png",renderer);
     Mapa = new Map(renderer);
     player = new Player("../Textures/player.png" , renderer);
-
-
+    enemigo = new Enemy("../Textures/slimerojo.png",renderer,8);
+    enemigo->changeDirection(1);
 }
 void Game::update() {
     //aca deberia de meterle un metodo que sea handle arduino, entonces
@@ -43,6 +45,9 @@ void Game::update() {
     //ACTUALIZA LA POSICION Y MOVIMIENTO DE IMAGENES.
     //cout<<"metodo update"<<endl;
     player->Update();
+    enemyColision();
+    enemigo->moveEnemy();
+    enemigo->Update();
     playerMappos();
     //verifyCollision();
     //verifyCollision();
@@ -64,6 +69,7 @@ void Game::render() {
     //player->renderAll();
     Mapa->renderMap();
     player->renderAll();
+    enemigo->renderEnemy();
     //Mapa->renderOne();
     SDL_RenderPresent(renderer);
 
@@ -152,7 +158,7 @@ void Game::eventHandler() { //no funciona de momento bien
             break;
     }*/
 }
-void Game::clean() {
+void Game::clean() { //limpia la screen , cuando el juego termina.
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
@@ -190,6 +196,21 @@ bool Game::verifyCollision(int x , int y){
     //la pregunta ahora es , como le hago para que el jugador se mueva
     //implemente primero colisiones con pared, como pacman ignora el grid
     //debe checkear en el cuadrante
+}
+void Game::enemyColision(){
+    //hay una debilidad con esta colision, arreglarla.
+    //this is wall collision with player;
+    //hay que hacer un if para verificar que no sea una pared
+    if(Mapa->getMapa(enemigo->getY()/24,enemigo->getX()/24)==2){
+        cout<<"colision"<<endl;
+        random_device rd;
+        std::uniform_int_distribution<int>randomx(1,4);
+        int randomNum = randomx(rd);
+        enemigo->changeDirection(randomNum);
+    }
+    else{
+        cout<<"no hay colision"<<endl;
+    }
 }
 
 void Game::playerMappos() {

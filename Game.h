@@ -10,6 +10,7 @@
 //#include "Enemigos/enemyList.h"
 #include "Map.h"
 #include "Player.h"
+#include "Enemy.h"
 class Game {
 private:
     bool isRunning;
@@ -18,7 +19,7 @@ private:
     SDL_Texture *texture;
     Map *Mapa;
     Player *player;
-
+    Enemy *enemigo;
     //enemyList* pruebaenemigo;
 public:
     Game();
@@ -30,8 +31,9 @@ public:
     bool running();
     void playerMappos();
     static SDL_Event evento;
-
     bool verifyCollision(int a, int b);
+
+    void enemyColision();
 };
 
 
