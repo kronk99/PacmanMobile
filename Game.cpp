@@ -33,7 +33,7 @@ void Game::init(const char *title, int posx, int posy, int width, int lenght, bo
         isRunning = false;
     }
     //player = new Player("../textures/a.png",renderer);
-    Mapa = new Map(renderer);
+    Map::getInstance()->insertRender(renderer);
     player = new Player("../Textures/player.png" , renderer);
     //enemigo = new Enemy("../Textures/slimerojo.png",renderer,1);
     //enemigo->changeDirection(1);
@@ -68,7 +68,7 @@ void Game::render() {
     //SDL_RenderCopy(renderer,textures,NULL,NULL);
     //aca es cuando le ponemos cosas a render, para que renderize en pantalla,
     //player->renderAll();
-    Mapa->renderMap();
+    Map::getInstance()->renderMap();
     player->renderAll();
     //enemigo->renderEnemy();
     //Mapa->renderOne();
@@ -168,7 +168,7 @@ bool Game::running() {
 bool Game::verifyCollision(int x , int y){
     //this is wall collision with player;
     //hay que hacer un if para verificar que no sea una pared
-    if(Mapa->getMapa(y/32,x/32)==2){
+    if(Map::getInstance()->getMapa(y/32,x/32)==2){
         cout<<"entre donde hay colision"<<endl;
         return true;
     }
@@ -190,7 +190,7 @@ bool Game::verifyCollision(int x , int y){
 }//this code is ok.
 bool Game::enemyColision(int x , int y){
 
-    if(Mapa->getMapa(y/24,x/24)==2){
+    if(Map::getInstance()->getMapa(y/24,x/24)==2){
         cout<<"COLISION"<<endl;
         return true;
         /*

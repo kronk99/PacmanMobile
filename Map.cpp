@@ -33,10 +33,8 @@ int lvl1[22][22]={
 
         };//constructor de la clase , solicita a texture loader las texturas correspondientes
 //de esta clase.
-Map::Map(SDL_Renderer *renderers) {
-    renderer = renderers;
-    comida=textureLoader::getTextureloader()->Loadtexture("../Textures/food.png", renderer);
-    pared =textureLoader::getTextureloader()->Loadtexture("../Textures/wall.png", renderer);
+Map* Map::pointer= nullptr;
+Map::Map() {
 //aca deberia de haber un switch que me diga
 //ok level 3, misma funcionalidad, entonces meta mapa lvl1.
     loadMap(lvl1);
@@ -114,4 +112,22 @@ int Map::getMapa(int a, int b){
     cout<<"el b es:"<<b<<endl;
     cout<<"la casilla es de tipo"<<mapa[a][b]<<endl;
     return this->mapa[a][b];
+}
+
+Map *Map::getInstance() {
+    if(pointer== nullptr){
+        cout<<"el gcolector estaba nulo"<<endl;
+        pointer = new Map();
+        return pointer;
+    }
+    else{
+        cout<<"ya esta creado el gcolector"<<endl;
+        return pointer;
+    }
+}
+
+void Map::insertRender(SDL_Renderer *renderers) {
+    renderer = renderers;
+    comida=textureLoader::getTextureloader()->Loadtexture("../Textures/food.png", renderer);
+    pared =textureLoader::getTextureloader()->Loadtexture("../Textures/wall.png", renderer);
 }

@@ -16,8 +16,9 @@ private:
     SDL_Texture *pared;
     SDL_Texture *comida;
     int mapa[22][22];
+    static Map* pointer;
 public:
-    Map(SDL_Renderer *renderer);
+    Map();
 //falta un deconstructor
     void loadMap(int array[22][22]);
     void renderMap();
@@ -26,12 +27,13 @@ public:
     void changeMap(int fila, int col, int valtoChange);
 
     void renderOne();
-
+    void insertRender(SDL_Renderer *render);
     SDL_Rect* getRect2();
 
     void setX(int a, int b);
 
     int getMapa(int a, int b);
+    static Map* getInstance();
 };
 
 
