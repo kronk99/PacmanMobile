@@ -35,6 +35,8 @@ public:
     int getY();
 
     int getX();
+
+    int getDirection();
 };
 
 

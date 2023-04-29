@@ -50,7 +50,9 @@ void Enemy::moveEnemy() {
         case 4:
             moverRight();
             break;
-
+        default:
+           cout<<"no me quiero mover"<<endl;
+           break;
     }
 }
 
@@ -78,4 +80,7 @@ int Enemy::getY(){
 }
 int Enemy::getX(){
     return posx;
+}
+int Enemy::getDirection(){
+    return this->direction;
 }
