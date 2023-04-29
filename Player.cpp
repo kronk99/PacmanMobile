@@ -9,8 +9,8 @@ Player::Player(const char* texture , SDL_Renderer* renders) {
     //SDL_Surface* p= IMG_Load(texture);
     //playerSkin= SDL_CreateTextureFromSurface(render , p);
     //SDL_FreeSurface(p); CAMBIE all this
-    posx=48;
-    posy=48;
+    posx=64;
+    posy=64;
 //EL JUGADOR DEBE DE MOVERSE EN MULTIPLOS DE 32 PIXELES
 }
 void Player::Update() {
@@ -23,8 +23,8 @@ void Player::Update() {
 //las imagenes empiezan ancho x alto , tener cuidado con esto
     destino.x=posx; //esto deberia ser igual a la posx posy , el height y w se mantienen
     destino.y=posy;//hasta donde mover la imagen
-    destino.h=24;//reescalado de la imagen(la disminuye a 64 pixeles)
-    destino.w=24;
+    destino.h=32;//reescalado de la imagen(la disminuye a 64 pixeles)
+    destino.w=32;
     //la imagen la agarra desde la esquina superior izquierda , es decir x=0,y=0
     //a eso se le suman 32 para hacer el ancho y largo
 }
@@ -32,11 +32,11 @@ void Player::renderAll() {
     SDL_RenderCopy(render,playerSkin,&origen,&destino);
 }
 void Player::moverRight(){
-    posx+=12;
+    posx+=16;
     cout<<posx<<endl;
 }
 void Player::moverLeft(){
-    posx-=12; //esto debe ser un multiplo o submultiplo del valor al que se
+    posx-=16; //esto debe ser un multiplo o submultiplo del valor al que se
     //reescalan las imagenes , para este caso 24, ese multiplo o submultiplo es la
     //velocidad, en el checkeador de colisiones , la cantidad que suma es el doble
     //de la velocidad, si no, es un valor fijo encontrado de manera a prueba y error
@@ -46,10 +46,10 @@ void Player::moverLeft(){
     //para el movimiento de los fantasmas, velocidades disponibles entonces ; 4,8,12
 }
 void Player::moverUp(){
-    posy-=12;
+    posy-=16;
 }
 void Player::moverDown(){
-    posy+=12;
+    posy+=16;
     cout<<posy<<endl;
 }
 SDL_Rect*  Player::getRect(){

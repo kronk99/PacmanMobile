@@ -10,7 +10,7 @@ int main() {
     int frametime;
     Game *game = new Game();
     //hice el init como el verdadero constructor de la ventana de juegoxd.
-    game->init("juego1" , SDL_WINDOWPOS_CENTERED , SDL_WINDOWPOS_CENTERED ,960 ,720,false);
+    game->init("juego1" , SDL_WINDOWPOS_CENTERED , SDL_WINDOWPOS_CENTERED ,704,704,false);
     while(game->running()){
         frameStart=SDL_GetTicks();
         game->eventHandler();

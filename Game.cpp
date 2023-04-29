@@ -35,8 +35,8 @@ void Game::init(const char *title, int posx, int posy, int width, int lenght, bo
     //player = new Player("../textures/a.png",renderer);
     Mapa = new Map(renderer);
     player = new Player("../Textures/player.png" , renderer);
-    enemigo = new Enemy("../Textures/slimerojo.png",renderer,1);
-    enemigo->changeDirection(1);
+    //enemigo = new Enemy("../Textures/slimerojo.png",renderer,1);
+    //enemigo->changeDirection(1);
 }
 void Game::update() {
     //aca deberia de meterle un metodo que sea handle arduino, entonces
@@ -45,10 +45,10 @@ void Game::update() {
     //ACTUALIZA LA POSICION Y MOVIMIENTO DE IMAGENES.
     //cout<<"metodo update"<<endl;
     player->Update();
-    enemigo->moveEnemy();
-    movenCheckEnemy(); //primero checkear colisiones antes de moverlo.
     //enemigo->moveEnemy();
-    enemigo->Update();
+    //movenCheckEnemy(); //primero checkear colisiones antes de moverlo.
+    //enemigo->moveEnemy();
+    //enemigo->Update();
     playerMappos();
     //verifyCollision();
     //verifyCollision();
@@ -70,7 +70,7 @@ void Game::render() {
     //player->renderAll();
     Mapa->renderMap();
     player->renderAll();
-    enemigo->renderEnemy();
+    //enemigo->renderEnemy();
     //Mapa->renderOne();
     SDL_RenderPresent(renderer);
 
@@ -101,7 +101,7 @@ void Game::eventHandler() { //no funciona de momento bien
                         player->moverDown();
                         break;
                     }
-                    if(verifyCollision(player->getX()+16 , player->getY())==true){
+                    if(verifyCollision(player->getX()+24 , player->getY())==true){
                         player->moverDown();
                         break;
                     }
@@ -113,7 +113,7 @@ void Game::eventHandler() { //no funciona de momento bien
                         player->moverRight();
                         break;
                     }
-                    if(verifyCollision(player->getX() , player->getY()+16)==true){
+                    if(verifyCollision(player->getX() , player->getY()+24)==true){
                         player->moverRight();
                         break;
                     }
@@ -122,11 +122,11 @@ void Game::eventHandler() { //no funciona de momento bien
                 case SDLK_d:
                     //CODIGO FUNCIONAL DE MOMENTO.
                     player->moverRight(); //no se por que es 16 el que sirve.
-                    if(verifyCollision(player->getX()+16 , player->getY())==true){
+                    if(verifyCollision(player->getX()+24 , player->getY())==true){
                         player->moverLeft();
                         break;
                     }
-                    if(verifyCollision(player->getX()+16 , player->getY()+16)==true){
+                    if(verifyCollision(player->getX()+24 , player->getY()+24)==true){
                         player->moverLeft();
                         break;
                     }
@@ -135,11 +135,11 @@ void Game::eventHandler() { //no funciona de momento bien
                 case SDLK_s:
                     //Codigo funcional
                     player->moverDown(); //modifique esto para colisiones abajo
-                    if(verifyCollision(player->getX() , player->getY()+16)==true){
+                    if(verifyCollision(player->getX() , player->getY()+24)==true){
                         player->moverUp();
                         break;
                     }
-                    if(verifyCollision(player->getX()+16 , player->getY()+16)==true){
+                    if(verifyCollision(player->getX()+24 , player->getY()+24)==true){
                         player->moverUp();
                         break;
                     }
@@ -168,7 +168,7 @@ bool Game::running() {
 bool Game::verifyCollision(int x , int y){
     //this is wall collision with player;
     //hay que hacer un if para verificar que no sea una pared
-    if(Mapa->getMapa(y/24,x/24)==2){
+    if(Mapa->getMapa(y/32,x/32)==2){
         cout<<"entre donde hay colision"<<endl;
         return true;
     }
@@ -267,7 +267,7 @@ void Game:: movenCheckEnemy() { //esto deberia de moverme al jugador de una vez
     }
 void Game::playerMappos() {
     if(player->checkCOunter()==true && player->checkyCounter()==true){
-       //cout<<"ESTOY en una casilla"<<endl;
+       cout<<"ESTOY en una casilla"<<endl;
         player->setALlposfalse();
     }
 }
