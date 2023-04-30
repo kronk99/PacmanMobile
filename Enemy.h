@@ -7,6 +7,7 @@
 #include <SDL2/SDL.h>
 #include "textureLoader.h"
 #include <iostream>
+#include "Map.h"
 
 class Enemy {
 private:
@@ -17,6 +18,10 @@ private:
     SDL_Renderer* render;
     int direction;
     int velocity;
+    int countx;
+    int county;
+    int paths;
+    int route[3];
 public:
     Enemy(const char* texture,SDL_Renderer* renders ,int velocidad);
     void renderEnemy();
@@ -37,6 +42,14 @@ public:
     int getX();
 
     int getDirection();
+    void move();
+
+    bool checkCounterx();
+
+    bool checkCountery();
+
+    void checkSurround();
+
 };
 
 

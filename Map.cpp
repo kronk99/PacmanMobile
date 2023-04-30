@@ -121,7 +121,6 @@ Map *Map::getInstance() {
         return pointer;
     }
     else{
-        cout<<"ya esta creado el gcolector"<<endl;
         return pointer;
     }
 }

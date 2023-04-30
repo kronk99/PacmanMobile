@@ -34,6 +34,8 @@ public:
 
     int getMapa(int a, int b);
     static Map* getInstance();
+
+    bool enemyColision(int x, int y);
 };
 
 

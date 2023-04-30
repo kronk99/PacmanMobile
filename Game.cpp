@@ -35,8 +35,8 @@ void Game::init(const char *title, int posx, int posy, int width, int lenght, bo
     //player = new Player("../textures/a.png",renderer);
     Map::getInstance()->insertRender(renderer);
     player = new Player("../Textures/player.png" , renderer);
-    //enemigo = new Enemy("../Textures/slimerojo.png",renderer,1);
-    //enemigo->changeDirection(1);
+    enemigo = new Enemy("../Textures/slimerojo.png",renderer,1);
+    enemigo->changeDirection(3);
 }
 void Game::update() {
     //aca deberia de meterle un metodo que sea handle arduino, entonces
@@ -45,10 +45,8 @@ void Game::update() {
     //ACTUALIZA LA POSICION Y MOVIMIENTO DE IMAGENES.
     //cout<<"metodo update"<<endl;
     player->Update();
-    //enemigo->moveEnemy();
-    //movenCheckEnemy(); //primero checkear colisiones antes de moverlo.
-    //enemigo->moveEnemy();
-    //enemigo->Update();
+    enemigo->move();
+    enemigo->Update();
     playerMappos();
     //verifyCollision();
     //verifyCollision();
@@ -70,7 +68,7 @@ void Game::render() {
     //player->renderAll();
     Map::getInstance()->renderMap();
     player->renderAll();
-    //enemigo->renderEnemy();
+    enemigo->renderEnemy();
     //Mapa->renderOne();
     SDL_RenderPresent(renderer);
 
@@ -176,98 +174,10 @@ bool Game::verifyCollision(int x , int y){
         cout<<"no hay colision"<<endl;
         return false;
     }
-
-    //el jugador necesita moverse por la matriz de juego , esto para el
-    //pathfinding de los fantasmas, como tambien las colisiones con la comida y
-    //pared, el jugador debe de chekear colsiones arriba suyo, abajo suyo,
-    //a su izquierda y a su derecha. estas verificaciones de colisiones
-    //se deben de llamar en el event handler de movimientos
-    //tipo me muevo a la derecha, primero verifique que no hay un obstaculo
-    //si retorna false, muevase, si no , no se mueva
-    //la pregunta ahora es , como le hago para que el jugador se mueva
-    //implemente primero colisiones con pared, como pacman ignora el grid
-    //debe checkear en el cuadrante
 }//this code is ok.
-bool Game::enemyColision(int x , int y){
-
-    if(Map::getInstance()->getMapa(y/24,x/24)==2){
-        cout<<"COLISION"<<endl;
-        return true;
-        /*
-        random_device rd;
-        std::uniform_int_distribution<int>randomx(1,4);
-        int randomNum = randomx(rd);
-        if(randomNum != enemigo->getDirection()){
-            enemigo->changeDirection(randomNum);
-        }*/
-    }
-    else{
-       // cout<<"NOcolision "<<endl;
-        return false;
-    }
-}//this we need to fix
-void Game:: movenCheckEnemy() { //esto deberia de moverme al jugador de una vez
-    //no que el enemigo se mueva solo, intentar afinar y si no se puede deay cambiarlo.
-    int number = enemigo->getDirection();
-    random_device rd;
-    std::uniform_int_distribution<int> randomx(1, 4);
-    int randomNum = randomx(rd);
-    if(number == randomNum){
-        randomNum =0;
-    }
-    //cout<<"el numero random es:"<<randomNum<<"y la posx ,y es"<<enemigo->getX()<<enemigo->getY()<<endl;
-    switch (number) { //MAE ME HACE FALTA EL CASO DONDE HAY COLISION
-        //Este codigo esta pal pico.
-        case 0:
-            cout<<"esperando otro random"<<endl;
-            enemigo->changeDirection(randomNum);
-            break;
-        case 1: //caso colision al moverse para arriba
-            if (enemyColision(enemigo->getX(), enemigo->getY()) == true) {
-                enemigo->changeDirection(randomNum);
-
-            }
-            if (enemyColision(enemigo->getX()+24, enemigo->getY()) == true) {
-                enemigo->changeDirection(randomNum);
-
-            }
-            break;
-        case 2: //caso colision hacia abajo.
-            if (enemyColision(enemigo->getX(), enemigo->getY()+24) == true) {
-                enemigo->changeDirection(randomNum);
-
-            }
-            if (enemyColision(enemigo->getX()+24, enemigo->getY()+24) == true) {
-                enemigo->changeDirection(randomNum);
-
-            }
-            break;
-        case 3://caso moverme izquierda.
-            if (enemyColision(enemigo->getX(), enemigo->getY()) == true) {
-                enemigo->changeDirection(randomNum);
-
-            }
-            if (enemyColision(enemigo->getX(), enemigo->getY()+24) == true) {
-                enemigo->changeDirection(randomNum);
-
-            }
-            break;
-        case 4://caso moverme derecha
-            if (enemyColision(enemigo->getX()+24, enemigo->getY()) == true) {
-                enemigo->changeDirection(randomNum);
-
-            }
-            if (enemyColision(enemigo->getX()+24, enemigo->getY()+24) == true) {
-                enemigo->changeDirection(randomNum);
-
-            }
-            break;
-        }
-    //SDL_Delay(1000);
-    }
 void Game::playerMappos() {
     if(player->checkCOunter()==true && player->checkyCounter()==true){
-       cout<<"ESTOY en una casilla"<<endl;
+      // cout<<"ESTOY en una casilla"<<endl;
         player->setALlposfalse();
     }
 }
