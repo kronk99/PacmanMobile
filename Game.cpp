@@ -48,6 +48,7 @@ void Game::update() {
     player->Update();
     enemigo->move();
     enemigo->Update();
+    PnEcollision();
     //playerMappos();
     //verifyCollision();
     //verifyCollision();
@@ -190,5 +191,10 @@ void Game::playerMappos() {
       }
 
       player->setALlposfalse();
+    }
+}//colision entre jugador y enemigos
+void Game::PnEcollision(){
+    if(SDL_HasIntersection(player->getRect() , enemigo->getRect())){
+        cout<<"EL FANTASMA SE COME AL JUGADOR"<<endl;
     }
 }

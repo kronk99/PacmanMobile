@@ -49,7 +49,7 @@ public:
     bool checkCountery();
 
     void checkSurround();
-
+    SDL_Rect* getRect();
 };
 
 

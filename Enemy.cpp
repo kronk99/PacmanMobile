@@ -204,3 +204,7 @@ bool Enemy::checkCountery() {
     }
 }
 
+SDL_Rect *Enemy::getRect() {
+    return &destino;
+}
+

@@ -37,6 +37,8 @@ public:
     bool enemyColision(int x, int y);
 
     void movenCheckEnemy();
+
+    void PnEcollision();
 };
 
 
