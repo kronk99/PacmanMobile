@@ -48,7 +48,7 @@ void Game::update() {
     player->Update();
     enemigo->move();
     enemigo->Update();
-    playerMappos();
+    //playerMappos();
     //verifyCollision();
     //verifyCollision();
     //Mapa->loadMap() //esto mas adelante va a cambiar el arraytype;
@@ -106,6 +106,7 @@ void Game::eventHandler() { //no funciona de momento bien
                         break;
                     }
                     player->sumposyCounter();
+                    playerMappos();
                     break;
                 case SDLK_a:
                     player->moverLeft();
@@ -118,6 +119,7 @@ void Game::eventHandler() { //no funciona de momento bien
                         break;
                     }
                     player->sumposCounter();
+                    playerMappos();
                     break;
                 case SDLK_d:
                     //CODIGO FUNCIONAL DE MOMENTO.
@@ -131,6 +133,7 @@ void Game::eventHandler() { //no funciona de momento bien
                         break;
                     }
                     player->sumposCounter();
+                    playerMappos();
                     break;
                 case SDLK_s:
                     //Codigo funcional
@@ -144,6 +147,7 @@ void Game::eventHandler() { //no funciona de momento bien
                         break;
                     }
                     player->sumposyCounter();
+                    playerMappos();
                     break;
             }
         }
@@ -179,8 +183,12 @@ bool Game::verifyCollision(int x , int y){
 }//this code is ok.
 void Game::playerMappos() {
     if(player->checkCOunter()==true && player->checkyCounter()==true){
-      // cout<<"ESTOY en una casilla"<<endl;
-      //score->scoreOne(10); aca no va,score va en player
-        player->setALlposfalse();
+      cout<<"ESTOY en una casilla"<<endl;
+      if(Map::getInstance()->getMapa(player->getY()/32,player->getX()/32)==1){
+          score->scoreOne(10);
+          Map::getInstance()->changeMap(player->getY()/32,player->getX()/32,0);
+      }
+
+      player->setALlposfalse();
     }
 }

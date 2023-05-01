@@ -51,7 +51,6 @@ void Enemy::moveEnemy() {
         case 3:
             moverLeft();
             countx++;
-            cout<<"me movi a la izquierda "<<endl;
             break;
         case 4:
             moverRight();
@@ -96,7 +95,7 @@ void Enemy::move() { //mueve al jugador , debo de poner siempreel direction a la
 
     //si no esta encima de una casilla , sigase moviendo.
     if(checkCounterx() == true || checkCountery() == true){
-        cout<<"no estoy moviendome"<<endl;
+        //cout<<"no estoy moviendome"<<endl;
         checkSurround();
         countx =0;
         county=0;

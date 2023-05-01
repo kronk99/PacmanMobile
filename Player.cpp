@@ -11,6 +11,8 @@ Player::Player(const char* texture , SDL_Renderer* renders) {
     //SDL_FreeSurface(p); CAMBIE all this
     posx=64;
     posy=64;
+    posCounter=0;
+    posyCounter=0;
 //EL JUGADOR DEBE DE MOVERSE EN MULTIPLOS DE 32 PIXELES
 }
 void Player::Update() {

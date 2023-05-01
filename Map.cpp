@@ -108,9 +108,9 @@ void Map::setX(int a, int b){
     destino2.y=b*32;
 }
 int Map::getMapa(int a, int b){
-    cout<<"el a es:"<<a<<endl;
-    cout<<"el b es:"<<b<<endl;
-    cout<<"la casilla es de tipo"<<mapa[a][b]<<endl;
+    //cout<<"el a es:"<<a<<endl;
+    //cout<<"el b es:"<<b<<endl;
+    //cout<<"la casilla es de tipo"<<mapa[a][b]<<endl;
     return this->mapa[a][b];
 }
 

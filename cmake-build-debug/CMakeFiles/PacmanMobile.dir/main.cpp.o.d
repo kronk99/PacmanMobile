@@ -287,4 +287,6 @@ CMakeFiles/PacmanMobile.dir/main.cpp.o: \
  /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/textureLoader.h \
  /usr/include/SDL2/SDL_image.h /usr/include/SDL2/SDL.h \
  /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Player.h \
- /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Enemy.h
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Enemy.h \
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Score.h \
+ /usr/include/SDL2/SDL_ttf.h
