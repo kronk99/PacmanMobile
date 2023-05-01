@@ -24,7 +24,7 @@ void Game::init(const char *title, int posx, int posy, int width, int lenght, bo
         window = SDL_CreateWindow(title , posx , posy ,width ,lenght , flags);
         cout<<"ventana creada exitosamente"<<endl;
         renderer = SDL_CreateRenderer(window , -1, 0);
-        SDL_SetRenderDrawColor(renderer, 255,255,255,255);
+        SDL_SetRenderDrawColor(renderer, 0,0,0,0);
         //esto dice dibujele color encima a renderer, los colores 250,255,255,255
         isRunning = true;
     }
@@ -37,6 +37,7 @@ void Game::init(const char *title, int posx, int posy, int width, int lenght, bo
     player = new Player("../Textures/player.png" , renderer);
     enemigo = new Enemy("../Textures/slimerojo.png",renderer,1);
     enemigo->changeDirection(3);
+    score=new Score(renderer);
 }
 void Game::update() {
     //aca deberia de meterle un metodo que sea handle arduino, entonces
@@ -69,6 +70,7 @@ void Game::render() {
     Map::getInstance()->renderMap();
     player->renderAll();
     enemigo->renderEnemy();
+    score->renderSCore();
     //Mapa->renderOne();
     SDL_RenderPresent(renderer);
 
@@ -178,6 +180,7 @@ bool Game::verifyCollision(int x , int y){
 void Game::playerMappos() {
     if(player->checkCOunter()==true && player->checkyCounter()==true){
       // cout<<"ESTOY en una casilla"<<endl;
+      //score->scoreOne(10); aca no va,score va en player
         player->setALlposfalse();
     }
 }

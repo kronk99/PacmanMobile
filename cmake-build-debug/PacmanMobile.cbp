@@ -106,6 +106,12 @@
 		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Player.h">
 			<Option target="PacmanMobile"/>
 		</Unit>
+		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Score.cpp">
+			<Option target="PacmanMobile"/>
+		</Unit>
+		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Score.h">
+			<Option target="PacmanMobile"/>
+		</Unit>
 		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/main.cpp">
 			<Option target="PacmanMobile"/>
 		</Unit>

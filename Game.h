@@ -11,6 +11,7 @@
 #include "Map.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "Score.h"
 class Game {
 private:
     bool isRunning;
@@ -20,6 +21,7 @@ private:
     Map *Mapa;
     Player *player;
     Enemy *enemigo;
+    Score *score;
     //enemyList* pruebaenemigo;
 public:
     Game();

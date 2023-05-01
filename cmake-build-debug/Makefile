@@ -225,6 +225,30 @@ Player.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Player.cpp.s
 .PHONY : Player.cpp.s
 
+Score.o: Score.cpp.o
+.PHONY : Score.o
+
+# target to build an object file
+Score.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Score.cpp.o
+.PHONY : Score.cpp.o
+
+Score.i: Score.cpp.i
+.PHONY : Score.i
+
+# target to preprocess a source file
+Score.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Score.cpp.i
+.PHONY : Score.cpp.i
+
+Score.s: Score.cpp.s
+.PHONY : Score.s
+
+# target to generate assembly for a file
+Score.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Score.cpp.s
+.PHONY : Score.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -294,6 +318,9 @@ help:
 	@echo "... Player.o"
 	@echo "... Player.i"
 	@echo "... Player.s"
+	@echo "... Score.o"
+	@echo "... Score.i"
+	@echo "... Score.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
