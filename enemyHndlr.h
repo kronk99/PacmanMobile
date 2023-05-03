@@ -17,6 +17,9 @@ public:
     void moveallEnemies(); //moves all enemies.
     void updateallEnemies(); //updates all enemies.
     void lvlup(const char* texture);
+    int getCurrentEnemies();
+
+    Enemy* getEnemy(int number);
 };
 
 

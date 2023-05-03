@@ -54,7 +54,7 @@ void Game::update() {
     enemigos->updateallEnemies();
     //enemigo->move();
     //enemigo->Update();
-    //PnEcollision();
+    PnEcollision();
     //playerMappos();
     //verifyCollision();
     //verifyCollision();
@@ -202,9 +202,12 @@ void Game::playerMappos() {
 }//colision entre jugador y enemigos
 //voy a documentar las colisiones por ahora, arreglarlo despues implementando
 //colisiones para todos los enemigos.
-/*
+
 void Game::PnEcollision(){
-    if(SDL_HasIntersection(player->getRect() , enemigo->getRect())){
-        cout<<"EL FANTASMA SE COME AL JUGADOR"<<endl;
+    int currentEnemies = enemigos->getCurrentEnemies();
+    for(int i=0;i<currentEnemies;i++){
+        if(SDL_HasIntersection(player->getRect() , enemigos->getEnemy(i)->getRect())){
+            cout<<"EL FANTASMA SE COME AL JUGADOR"<<endl;
+        }
     }
-}*/
+}

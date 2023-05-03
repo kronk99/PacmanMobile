@@ -37,3 +37,10 @@ void enemyHndlr::lvlup(const char* texture) {//this function adds a ghost on scr
     fantasmas[currentEnemies-1]->changeDirection(3);
 
 }
+
+int enemyHndlr::getCurrentEnemies() {
+    return this->currentEnemies;
+}
+Enemy* enemyHndlr::getEnemy(int number){
+    return fantasmas[number];
+}

@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/PacmanMobile.dir/Player.cpp.o.d"
   "CMakeFiles/PacmanMobile.dir/Score.cpp.o"
   "CMakeFiles/PacmanMobile.dir/Score.cpp.o.d"
+  "CMakeFiles/PacmanMobile.dir/enemyHndlr.cpp.o"
+  "CMakeFiles/PacmanMobile.dir/enemyHndlr.cpp.o.d"
   "CMakeFiles/PacmanMobile.dir/main.cpp.o"
   "CMakeFiles/PacmanMobile.dir/main.cpp.o.d"
   "CMakeFiles/PacmanMobile.dir/textureLoader.cpp.o"
