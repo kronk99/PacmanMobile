@@ -249,6 +249,30 @@ Score.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Score.cpp.s
 .PHONY : Score.cpp.s
 
+enemyHndlr.o: enemyHndlr.cpp.o
+.PHONY : enemyHndlr.o
+
+# target to build an object file
+enemyHndlr.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/enemyHndlr.cpp.o
+.PHONY : enemyHndlr.cpp.o
+
+enemyHndlr.i: enemyHndlr.cpp.i
+.PHONY : enemyHndlr.i
+
+# target to preprocess a source file
+enemyHndlr.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/enemyHndlr.cpp.i
+.PHONY : enemyHndlr.cpp.i
+
+enemyHndlr.s: enemyHndlr.cpp.s
+.PHONY : enemyHndlr.s
+
+# target to generate assembly for a file
+enemyHndlr.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/enemyHndlr.cpp.s
+.PHONY : enemyHndlr.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -321,6 +345,9 @@ help:
 	@echo "... Score.o"
 	@echo "... Score.i"
 	@echo "... Score.s"
+	@echo "... enemyHndlr.o"
+	@echo "... enemyHndlr.i"
+	@echo "... enemyHndlr.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

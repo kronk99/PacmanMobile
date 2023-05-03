@@ -35,9 +35,13 @@ void Game::init(const char *title, int posx, int posy, int width, int lenght, bo
     //player = new Player("../textures/a.png",renderer);
     Map::getInstance()->insertRender(renderer);
     player = new Player("../Textures/player.png" , renderer);
-    enemigo = new Enemy("../Textures/slimerojo.png",renderer,1);
-    enemigo->changeDirection(3);
+    //enemigo = new Enemy("../Textures/slimerojo.png",renderer,1);
+    //enemigo->changeDirection(3);
+    enemigos = new enemyHndlr(renderer);
     score=new Score(renderer);
+    enemigos->lvlup("../Textures/slimerojo.png");
+    enemigos->lvlup("../Textures/slimeverde.png");
+    enemigos->lvlup("../Textures/slimenaranja.png");
 }
 void Game::update() {
     //aca deberia de meterle un metodo que sea handle arduino, entonces
@@ -46,9 +50,11 @@ void Game::update() {
     //ACTUALIZA LA POSICION Y MOVIMIENTO DE IMAGENES.
     //cout<<"metodo update"<<endl;
     player->Update();
-    enemigo->move();
-    enemigo->Update();
-    PnEcollision();
+    enemigos->moveallEnemies();
+    enemigos->updateallEnemies();
+    //enemigo->move();
+    //enemigo->Update();
+    //PnEcollision();
     //playerMappos();
     //verifyCollision();
     //verifyCollision();
@@ -70,7 +76,8 @@ void Game::render() {
     //player->renderAll();
     Map::getInstance()->renderMap();
     player->renderAll();
-    enemigo->renderEnemy();
+    enemigos->renderallEnemies();
+    //enemigo->renderEnemy();
     score->renderSCore();
     //Mapa->renderOne();
     SDL_RenderPresent(renderer);
@@ -193,8 +200,11 @@ void Game::playerMappos() {
       player->setALlposfalse();
     }
 }//colision entre jugador y enemigos
+//voy a documentar las colisiones por ahora, arreglarlo despues implementando
+//colisiones para todos los enemigos.
+/*
 void Game::PnEcollision(){
     if(SDL_HasIntersection(player->getRect() , enemigo->getRect())){
         cout<<"EL FANTASMA SE COME AL JUGADOR"<<endl;
     }
-}
+}*/

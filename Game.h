@@ -10,8 +10,9 @@
 //#include "Enemigos/enemyList.h"
 #include "Map.h"
 #include "Player.h"
-#include "Enemy.h"
+//#include "Enemy.h"
 #include "Score.h"
+#include "enemyHndlr.h"
 class Game {
 private:
     bool isRunning;
@@ -20,8 +21,9 @@ private:
     SDL_Texture *texture;
     Map *Mapa;
     Player *player;
-    Enemy *enemigo;
+    //Enemy *enemigo;
     Score *score;
+    enemyHndlr *enemigos;
     //enemyList* pruebaenemigo;
 public:
     Game();
