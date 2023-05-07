@@ -7,6 +7,10 @@
 //0 como celda vacia sin nada
 //ESTE MAPA ES UN MAPA GLOBAL, AKA VARIABLE GLOBAL.
 int lvl1[22][22]={
+        //significado de los numeros:
+        // 0 implica que no hay comida ni objetos(pacman paso por ahi)
+        //1 implica que hay comida
+        //2 implica que hay obstaculo:
         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
         {2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2},
         {2,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,2},

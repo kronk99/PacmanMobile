@@ -1,6 +1,23 @@
 #include <iostream>
 #include "Game.h"
+#include "Lista.h"
 int main() {
+    int x1 = 1;
+    int x2=2;
+    int x3=3;
+    int F1 =3;
+    int F2 = 5;
+    Lista *openlist = new Lista();
+    Lista *closeLIst = new Lista();
+    openlist->insertCloseList(closeLIst);
+    openlist->insertFirst(x1,x2,F1);
+    openlist->insertLast(x2,x1,F2);
+    openlist->printList();
+    openlist->deleteFirst();
+    openlist->deleteFirst();
+    openlist->deleteFirst();
+    closeLIst->printList();
+    /*
     int a=184;
     int b=32;
     cout<<"el numero es"<<a/b<<endl;
@@ -23,6 +40,6 @@ int main() {
             SDL_Delay(frameDelay-frametime);
         }
     }
-
+*/
     return 0;
 }

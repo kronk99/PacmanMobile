@@ -292,6 +292,7 @@ CMakeFiles/PacmanMobile.dir/Game.cpp.o: \
  /usr/include/SDL2/SDL_ttf.h \
  /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/enemyHndlr.h \
  /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Enemy.h \
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Vida.h \
  /usr/include/c++/11/random /usr/include/c++/11/bits/random.h \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_vector.h \

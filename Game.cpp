@@ -42,6 +42,7 @@ void Game::init(const char *title, int posx, int posy, int width, int lenght, bo
     enemigos->lvlup("../Textures/slimerojo.png");
     enemigos->lvlup("../Textures/slimeverde.png");
     enemigos->lvlup("../Textures/slimenaranja.png");
+    vida = new Vida(renderer);
 }
 void Game::update() {
     //aca deberia de meterle un metodo que sea handle arduino, entonces
@@ -80,6 +81,7 @@ void Game::render() {
     //enemigo->renderEnemy();
     score->renderSCore();
     //Mapa->renderOne();
+    vida->renderAll();
     SDL_RenderPresent(renderer);
 
 }
@@ -211,3 +213,4 @@ void Game::PnEcollision(){
         }
     }
 }
+

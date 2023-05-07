@@ -94,10 +94,22 @@
 		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Game.h">
 			<Option target="PacmanMobile"/>
 		</Unit>
+		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Lista.cpp">
+			<Option target="PacmanMobile"/>
+		</Unit>
+		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Lista.h">
+			<Option target="PacmanMobile"/>
+		</Unit>
 		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Map.cpp">
 			<Option target="PacmanMobile"/>
 		</Unit>
 		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Map.h">
+			<Option target="PacmanMobile"/>
+		</Unit>
+		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Node.cpp">
+			<Option target="PacmanMobile"/>
+		</Unit>
+		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Node.h">
 			<Option target="PacmanMobile"/>
 		</Unit>
 		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Player.cpp">
@@ -112,6 +124,12 @@
 		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Score.h">
 			<Option target="PacmanMobile"/>
 		</Unit>
+		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Vida.cpp">
+			<Option target="PacmanMobile"/>
+		</Unit>
+		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Vida.h">
+			<Option target="PacmanMobile"/>
+		</Unit>
 		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/enemyHndlr.cpp">
 			<Option target="PacmanMobile"/>
 		</Unit>
@@ -119,6 +137,12 @@
 			<Option target="PacmanMobile"/>
 		</Unit>
 		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/main.cpp">
+			<Option target="PacmanMobile"/>
+		</Unit>
+		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/pathfindingA.cpp">
+			<Option target="PacmanMobile"/>
+		</Unit>
+		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/pathfindingA.h">
 			<Option target="PacmanMobile"/>
 		</Unit>
 		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/textureLoader.cpp">

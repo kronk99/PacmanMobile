@@ -290,4 +290,7 @@ CMakeFiles/PacmanMobile.dir/main.cpp.o: \
  /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Score.h \
  /usr/include/SDL2/SDL_ttf.h \
  /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/enemyHndlr.h \
- /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Enemy.h
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Enemy.h \
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Vida.h \
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Lista.h \
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Node.h

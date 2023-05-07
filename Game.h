@@ -13,6 +13,7 @@
 //#include "Enemy.h"
 #include "Score.h"
 #include "enemyHndlr.h"
+#include "Vida.h";
 class Game {
 private:
     bool isRunning;
@@ -24,6 +25,8 @@ private:
     //Enemy *enemigo;
     Score *score;
     enemyHndlr *enemigos;
+    Vida *vida;
+
     //enemyList* pruebaenemigo;
 public:
     Game();

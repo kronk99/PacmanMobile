@@ -177,6 +177,30 @@ Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Game.cpp.s
 .PHONY : Game.cpp.s
 
+Lista.o: Lista.cpp.o
+.PHONY : Lista.o
+
+# target to build an object file
+Lista.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Lista.cpp.o
+.PHONY : Lista.cpp.o
+
+Lista.i: Lista.cpp.i
+.PHONY : Lista.i
+
+# target to preprocess a source file
+Lista.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Lista.cpp.i
+.PHONY : Lista.cpp.i
+
+Lista.s: Lista.cpp.s
+.PHONY : Lista.s
+
+# target to generate assembly for a file
+Lista.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Lista.cpp.s
+.PHONY : Lista.cpp.s
+
 Map.o: Map.cpp.o
 .PHONY : Map.o
 
@@ -200,6 +224,30 @@ Map.s: Map.cpp.s
 Map.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Map.cpp.s
 .PHONY : Map.cpp.s
+
+Node.o: Node.cpp.o
+.PHONY : Node.o
+
+# target to build an object file
+Node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Node.cpp.o
+.PHONY : Node.cpp.o
+
+Node.i: Node.cpp.i
+.PHONY : Node.i
+
+# target to preprocess a source file
+Node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Node.cpp.i
+.PHONY : Node.cpp.i
+
+Node.s: Node.cpp.s
+.PHONY : Node.s
+
+# target to generate assembly for a file
+Node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Node.cpp.s
+.PHONY : Node.cpp.s
 
 Player.o: Player.cpp.o
 .PHONY : Player.o
@@ -249,6 +297,30 @@ Score.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Score.cpp.s
 .PHONY : Score.cpp.s
 
+Vida.o: Vida.cpp.o
+.PHONY : Vida.o
+
+# target to build an object file
+Vida.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Vida.cpp.o
+.PHONY : Vida.cpp.o
+
+Vida.i: Vida.cpp.i
+.PHONY : Vida.i
+
+# target to preprocess a source file
+Vida.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Vida.cpp.i
+.PHONY : Vida.cpp.i
+
+Vida.s: Vida.cpp.s
+.PHONY : Vida.s
+
+# target to generate assembly for a file
+Vida.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Vida.cpp.s
+.PHONY : Vida.cpp.s
+
 enemyHndlr.o: enemyHndlr.cpp.o
 .PHONY : enemyHndlr.o
 
@@ -297,6 +369,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+pathfindingA.o: pathfindingA.cpp.o
+.PHONY : pathfindingA.o
+
+# target to build an object file
+pathfindingA.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/pathfindingA.cpp.o
+.PHONY : pathfindingA.cpp.o
+
+pathfindingA.i: pathfindingA.cpp.i
+.PHONY : pathfindingA.i
+
+# target to preprocess a source file
+pathfindingA.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/pathfindingA.cpp.i
+.PHONY : pathfindingA.cpp.i
+
+pathfindingA.s: pathfindingA.cpp.s
+.PHONY : pathfindingA.s
+
+# target to generate assembly for a file
+pathfindingA.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/pathfindingA.cpp.s
+.PHONY : pathfindingA.cpp.s
+
 textureLoader.o: textureLoader.cpp.o
 .PHONY : textureLoader.o
 
@@ -336,21 +432,33 @@ help:
 	@echo "... Game.o"
 	@echo "... Game.i"
 	@echo "... Game.s"
+	@echo "... Lista.o"
+	@echo "... Lista.i"
+	@echo "... Lista.s"
 	@echo "... Map.o"
 	@echo "... Map.i"
 	@echo "... Map.s"
+	@echo "... Node.o"
+	@echo "... Node.i"
+	@echo "... Node.s"
 	@echo "... Player.o"
 	@echo "... Player.i"
 	@echo "... Player.s"
 	@echo "... Score.o"
 	@echo "... Score.i"
 	@echo "... Score.s"
+	@echo "... Vida.o"
+	@echo "... Vida.i"
+	@echo "... Vida.s"
 	@echo "... enemyHndlr.o"
 	@echo "... enemyHndlr.i"
 	@echo "... enemyHndlr.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... pathfindingA.o"
+	@echo "... pathfindingA.i"
+	@echo "... pathfindingA.s"
 	@echo "... textureLoader.o"
 	@echo "... textureLoader.i"
 	@echo "... textureLoader.s"

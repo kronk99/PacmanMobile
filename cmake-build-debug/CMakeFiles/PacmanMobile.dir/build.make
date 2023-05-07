@@ -181,6 +181,62 @@ CMakeFiles/PacmanMobile.dir/enemyHndlr.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PacmanMobile.dir/enemyHndlr.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/enemyHndlr.cpp -o CMakeFiles/PacmanMobile.dir/enemyHndlr.cpp.s
 
+CMakeFiles/PacmanMobile.dir/Vida.cpp.o: CMakeFiles/PacmanMobile.dir/flags.make
+CMakeFiles/PacmanMobile.dir/Vida.cpp.o: /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Vida.cpp
+CMakeFiles/PacmanMobile.dir/Vida.cpp.o: CMakeFiles/PacmanMobile.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/PacmanMobile.dir/Vida.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PacmanMobile.dir/Vida.cpp.o -MF CMakeFiles/PacmanMobile.dir/Vida.cpp.o.d -o CMakeFiles/PacmanMobile.dir/Vida.cpp.o -c /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Vida.cpp
+
+CMakeFiles/PacmanMobile.dir/Vida.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PacmanMobile.dir/Vida.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Vida.cpp > CMakeFiles/PacmanMobile.dir/Vida.cpp.i
+
+CMakeFiles/PacmanMobile.dir/Vida.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PacmanMobile.dir/Vida.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Vida.cpp -o CMakeFiles/PacmanMobile.dir/Vida.cpp.s
+
+CMakeFiles/PacmanMobile.dir/pathfindingA.cpp.o: CMakeFiles/PacmanMobile.dir/flags.make
+CMakeFiles/PacmanMobile.dir/pathfindingA.cpp.o: /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/pathfindingA.cpp
+CMakeFiles/PacmanMobile.dir/pathfindingA.cpp.o: CMakeFiles/PacmanMobile.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/PacmanMobile.dir/pathfindingA.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PacmanMobile.dir/pathfindingA.cpp.o -MF CMakeFiles/PacmanMobile.dir/pathfindingA.cpp.o.d -o CMakeFiles/PacmanMobile.dir/pathfindingA.cpp.o -c /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/pathfindingA.cpp
+
+CMakeFiles/PacmanMobile.dir/pathfindingA.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PacmanMobile.dir/pathfindingA.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/pathfindingA.cpp > CMakeFiles/PacmanMobile.dir/pathfindingA.cpp.i
+
+CMakeFiles/PacmanMobile.dir/pathfindingA.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PacmanMobile.dir/pathfindingA.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/pathfindingA.cpp -o CMakeFiles/PacmanMobile.dir/pathfindingA.cpp.s
+
+CMakeFiles/PacmanMobile.dir/Lista.cpp.o: CMakeFiles/PacmanMobile.dir/flags.make
+CMakeFiles/PacmanMobile.dir/Lista.cpp.o: /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Lista.cpp
+CMakeFiles/PacmanMobile.dir/Lista.cpp.o: CMakeFiles/PacmanMobile.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/PacmanMobile.dir/Lista.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PacmanMobile.dir/Lista.cpp.o -MF CMakeFiles/PacmanMobile.dir/Lista.cpp.o.d -o CMakeFiles/PacmanMobile.dir/Lista.cpp.o -c /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Lista.cpp
+
+CMakeFiles/PacmanMobile.dir/Lista.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PacmanMobile.dir/Lista.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Lista.cpp > CMakeFiles/PacmanMobile.dir/Lista.cpp.i
+
+CMakeFiles/PacmanMobile.dir/Lista.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PacmanMobile.dir/Lista.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Lista.cpp -o CMakeFiles/PacmanMobile.dir/Lista.cpp.s
+
+CMakeFiles/PacmanMobile.dir/Node.cpp.o: CMakeFiles/PacmanMobile.dir/flags.make
+CMakeFiles/PacmanMobile.dir/Node.cpp.o: /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Node.cpp
+CMakeFiles/PacmanMobile.dir/Node.cpp.o: CMakeFiles/PacmanMobile.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/PacmanMobile.dir/Node.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PacmanMobile.dir/Node.cpp.o -MF CMakeFiles/PacmanMobile.dir/Node.cpp.o.d -o CMakeFiles/PacmanMobile.dir/Node.cpp.o -c /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Node.cpp
+
+CMakeFiles/PacmanMobile.dir/Node.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PacmanMobile.dir/Node.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Node.cpp > CMakeFiles/PacmanMobile.dir/Node.cpp.i
+
+CMakeFiles/PacmanMobile.dir/Node.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PacmanMobile.dir/Node.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Node.cpp -o CMakeFiles/PacmanMobile.dir/Node.cpp.s
+
 # Object files for target PacmanMobile
 PacmanMobile_OBJECTS = \
 "CMakeFiles/PacmanMobile.dir/main.cpp.o" \
@@ -190,7 +246,11 @@ PacmanMobile_OBJECTS = \
 "CMakeFiles/PacmanMobile.dir/Player.cpp.o" \
 "CMakeFiles/PacmanMobile.dir/Enemy.cpp.o" \
 "CMakeFiles/PacmanMobile.dir/Score.cpp.o" \
-"CMakeFiles/PacmanMobile.dir/enemyHndlr.cpp.o"
+"CMakeFiles/PacmanMobile.dir/enemyHndlr.cpp.o" \
+"CMakeFiles/PacmanMobile.dir/Vida.cpp.o" \
+"CMakeFiles/PacmanMobile.dir/pathfindingA.cpp.o" \
+"CMakeFiles/PacmanMobile.dir/Lista.cpp.o" \
+"CMakeFiles/PacmanMobile.dir/Node.cpp.o"
 
 # External object files for target PacmanMobile
 PacmanMobile_EXTERNAL_OBJECTS =
@@ -203,9 +263,13 @@ PacmanMobile: CMakeFiles/PacmanMobile.dir/Player.cpp.o
 PacmanMobile: CMakeFiles/PacmanMobile.dir/Enemy.cpp.o
 PacmanMobile: CMakeFiles/PacmanMobile.dir/Score.cpp.o
 PacmanMobile: CMakeFiles/PacmanMobile.dir/enemyHndlr.cpp.o
+PacmanMobile: CMakeFiles/PacmanMobile.dir/Vida.cpp.o
+PacmanMobile: CMakeFiles/PacmanMobile.dir/pathfindingA.cpp.o
+PacmanMobile: CMakeFiles/PacmanMobile.dir/Lista.cpp.o
+PacmanMobile: CMakeFiles/PacmanMobile.dir/Node.cpp.o
 PacmanMobile: CMakeFiles/PacmanMobile.dir/build.make
 PacmanMobile: CMakeFiles/PacmanMobile.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable PacmanMobile"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable PacmanMobile"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PacmanMobile.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
