@@ -106,6 +106,7 @@ Node *Lista::minorF() { //metodo para la open list
     }
     cout<<"se pasa el recorrido de menor f"<<endl;
     current = current2;
+    cout<<"se pasa el recorrido de menor fxd"<<endl;
     deleteNode(current2);
     cout<<"se pasa el deleteNOde de menor f"<<endl;
     cout<<"se pasa el deleteNOde de menor f"<<endl;
@@ -114,11 +115,12 @@ Node *Lista::minorF() { //metodo para la open list
 }
 
 void Lista::deleteNode(Node *nodo) {
-    current2 = nodo->getPrevious();
+    cout<<"legue aca"<<endl;
     //LLEGUE ACA , EL CURRENT 2 SI LO AGARRA, VER SI EL QUE IMPRIME ES EL CORRECTO.
     
     //casos :
     if(size >1){
+        current2 = nodo->getPrevious();
         if(nodo ==head){
             cout<<"entre al metodo 2"<<endl;
             closeList->insertNode(nodo);
@@ -147,6 +149,7 @@ void Lista::deleteNode(Node *nodo) {
         size--;
     }
     else if (size==1){
+        current2 = nodo->getPrevious();
         cout<<"la lista solo tiene 1 nodo"<<endl;
         closeList->insertNode(nodo);
         head= nullptr;
@@ -156,4 +159,8 @@ void Lista::deleteNode(Node *nodo) {
     else{
         cout<<"lista vacia"<<endl;
     }
+}
+
+int Lista::getSIze() {
+    return size;
 }

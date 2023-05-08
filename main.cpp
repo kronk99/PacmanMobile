@@ -14,6 +14,8 @@ int main() {
     openlist->insertLast(x2,x1,F2);
     openlist->printList();
     cout<<"el f mayor es:"<< openlist->minorF()<<endl;
+    cout<<"el f2 mayor es:"<< openlist->minorF()<<endl;
+    cout<<"el xd mayor es:"<< openlist->minorF()<<endl;
     closeLIst->printList();
     closeLIst->trueDelete();
     closeLIst->printList();

@@ -29,6 +29,7 @@ public:
     void trueDelete();
     Node* minorF();
     void deleteNode(Node *nodo);
+    int getSIze();
 
 
 
