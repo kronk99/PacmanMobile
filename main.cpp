@@ -13,9 +13,9 @@ int main() {
     openlist->insertFirst(x1,x2,F1);
     openlist->insertLast(x2,x1,F2);
     openlist->printList();
-    openlist->deleteFirst();
-    openlist->deleteFirst();
-    openlist->deleteFirst();
+    cout<<"el f mayor es:"<< openlist->minorF()<<endl;
+    closeLIst->printList();
+    closeLIst->trueDelete();
     closeLIst->printList();
     /*
     int a=184;

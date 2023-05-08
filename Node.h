@@ -12,6 +12,7 @@ private:
     int posy;
     int F;
     Node *next;
+    Node *previous;
 public:
         Node(int posxi,int posyi , int F );
         Node* getNext();
@@ -19,6 +20,8 @@ public:
         int getx();
         int gety();
         int getF();
+        Node* getPrevious();
+        void setPrevious(Node* previus);
 
 };
 

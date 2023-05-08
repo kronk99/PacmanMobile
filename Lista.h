@@ -14,8 +14,10 @@ private:
     Node *head;
     Node *last;
     Node *current;
+    Node *current2;
     int size;
     Lista *closeList;
+    int Fmenor;
 public:
     Lista();
     void insertFirst(int x , int y, int F);
@@ -24,6 +26,10 @@ public:
     void printList();
     void insertCloseList(Lista *closelist);
     void insertNode(Node* nodo);
+    void trueDelete();
+    Node* minorF();
+    void deleteNode(Node *nodo);
+
 
 
 };

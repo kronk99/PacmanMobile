@@ -29,3 +29,11 @@ int Node::gety() {
 int Node::getF() {
     return F;
 }
+
+Node *Node::getPrevious() {
+    return this->previous;
+}
+
+void Node::setPrevious(Node* previus) {
+    this->previous = previus;
+}
