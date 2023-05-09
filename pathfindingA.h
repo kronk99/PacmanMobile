@@ -22,7 +22,7 @@ private:
     Lista *closeList;
 public:
     pathfindingA();
-    pathfindingA *getInstance();
+    static pathfindingA *getInstance();
     bool validCell(int x, int y);
 
     bool isValid(int row, int col);
@@ -30,7 +30,8 @@ public:
     bool isDestination(int row, int col, int destx, int desty);
 
     int calculateHValue(int row, int col, int destx, int desty);
-    void aStarSearch(int [20][20] , int posx, int posy , int destx ,int desty);
+    void aStarSearch(int [22][22] , int posx, int posy , int destx ,int desty);
+    void tracePath(cell cellDetails[22][22], int destx ,int desty);
 };
 
 

@@ -30,6 +30,7 @@ public:
     Node* minorF();
     void deleteNode(Node *nodo);
     int getSIze();
+    bool isincloseL(int x , int y);
 
 
 

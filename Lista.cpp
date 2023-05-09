@@ -164,3 +164,14 @@ void Lista::deleteNode(Node *nodo) {
 int Lista::getSIze() {
     return size;
 }
+
+bool Lista::isincloseL(int xi ,int yi) {
+    current = head;
+    for(int i=0;i<size;i++){
+        if(current->getx() ==xi && current->gety()==yi){
+            return true;
+        }
+        current=current->getNext();
+    }
+    return false;
+}
