@@ -31,7 +31,7 @@ public:
 
     int calculateHValue(int row, int col, int destx, int desty);
     void aStarSearch(int [22][22] , int posx, int posy , int destx ,int desty);
-    void tracePath(cell cellDetails[22][22], int destx ,int desty);
+    void tracePath(cell cellDetails[22][22], int destx ,int desty ,int orgenx, int origeny);
 };
 
 

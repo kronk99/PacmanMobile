@@ -57,26 +57,25 @@ int pathfindingA:: calculateHValue(int row, int col, int destx,int desty)
 }
 /*
  * CODIGO CON EL QUE SE VA A METER A LA PILA QUE EL ENEMYCLASS VA A TENER.*/
-void pathfindingA::tracePath(cell cellDetails[22][22], int destx ,int desty)
+void pathfindingA::tracePath(cell cellDetails[22][22], int destx ,int desty ,int origenx ,int origeny)
 {
     printf("\nThe Path is ");
     int row = destx;
     int col = desty;
 //me hace falta una pila para este codigo.
    // stack<Pair> Path;
-
-    while (!(cellDetails[row][col].parent_i == row && cellDetails[row][col].parent_j == col)) {
-        /*
-        Path.push(make_pair(row, col));
+    //!(cellDetails[row][col].parent_i == destx && cellDetails[row][col].parent_j == desty
+    //ANTES DE ESTE CICLO AÑADIRLE A LA PILA EL DESTX Y EL DESTY.
+    while (cellDetails[row][col].parent_i != origenx or cellDetails[row][col].parent_j != origeny) {
+//cambiar el && por un or
         int temp_row = cellDetails[row][col].parent_i;
         int temp_col = cellDetails[row][col].parent_j;
+        cout<<"la ruta x es:"<<temp_row<<endl;
+        cout<<"la ruta y es:"<<temp_col<<endl;
         row = temp_row;
-        col = temp_col;*/
-        cout<<"el camino x es"<< row<<endl;
-        cout<<"el camino y es"<< col<<endl;
-        row = cellDetails[row][col].parent_i;
-        col =cellDetails[row][col].parent_j;
-
+        col = temp_col;
+        //basicamente tengo que añadir en la pila los temp_rows NO LOS ROW COL,añadiendo inicialmente
+        //la destx y la desty .
     }
 /*
     Path.push(make_pair(row, col));
@@ -139,10 +138,13 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
     bool foundDest = false;
     Node *current;
     int gNew, hNew, fNew;
+
     while(openList->getSIze()!=0){
         current = openList->minorF();
         i = current->getx();
         j = current->gety();
+        cout<<"mi x ahora es"<<i<<endl;
+        cout<<"mi y ahora es:"<<j<<endl;
         //now we will genenerate the succesors.
         //int g, h, f; //for storing these values of the 8 succesors.
         //********************First succesor (North)********************
@@ -155,7 +157,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                 cellDetails[i - 1][j].parent_i = i;
                 cellDetails[i - 1][j].parent_j = j;
                 printf("The destination cell is found\n");
-                tracePath(cellDetails, destx,desty);
+                tracePath(cellDetails, destx,desty , posx ,posy);
                 foundDest = true;
                 return;
             }
@@ -185,6 +187,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                     cellDetails[i - 1][j].h = hNew;
                     cellDetails[i - 1][j].parent_i = i;
                     cellDetails[i - 1][j].parent_j = j;
+                    cout<<"el sucesor escogido es el norte"<<endl;
                 }
             }
         }
@@ -197,7 +200,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                 cellDetails[i + 1][j].parent_i = i;
                 cellDetails[i + 1][j].parent_j = j;
                 printf("The destination cell is found\n");
-                tracePath(cellDetails, destx,desty);
+                tracePath(cellDetails, destx,desty ,posx, posy);
                 foundDest = true;
                 return;
             }
@@ -227,6 +230,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                     cellDetails[i + 1][j].h = hNew;
                     cellDetails[i + 1][j].parent_i = i;
                     cellDetails[i + 1][j].parent_j = j;
+                    cout<<"el sucesor escogido es el sur"<<endl;
                 }
             }
         }
@@ -239,7 +243,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                 cellDetails[i][j+1].parent_i = i;
                 cellDetails[i][j+1].parent_j = j;
                 printf("The destination cell is found\n");
-                tracePath(cellDetails, destx,desty);
+                tracePath(cellDetails, destx,desty,posx, posy);
                 foundDest = true;
                 return;
             }
@@ -269,6 +273,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                     cellDetails[i ][j+1].h = hNew;
                     cellDetails[i ][j+1].parent_i = i;
                     cellDetails[i ][j+1].parent_j = j;
+                    cout<<"el sucesor escogido es el este"<<endl;
                 }
             }
         }
@@ -281,7 +286,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                 cellDetails[i][j-1].parent_i = i;
                 cellDetails[i][j-1].parent_j = j;
                 printf("The destination cell is found\n");
-                tracePath(cellDetails, destx,desty);
+                tracePath(cellDetails, destx,desty ,posx ,posy);
                 foundDest = true;
                 return;
             }
@@ -311,6 +316,183 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                     cellDetails[i ][j-1].h = hNew;
                     cellDetails[i ][j-1].parent_i = i;
                     cellDetails[i ][j-1].parent_j = j;
+                    cout<<"el sucesor escogido es el Oeste"<<endl;
+                }
+            }
+        }
+        //caso NORESTE********************* REVISAR CASO POR CASO, NO ESTAN SIRVIENDO A PARTIR DE ESTE PARA ABAJO
+        if (isValid(i-1 , j+1) == true) {
+            // If the destination cell is the same as the
+            // current successor
+            if (isDestination(i-1 , j+1, destx, desty) == true) {
+                // Set the Parent of the destination cell
+                cellDetails[i-1][j+1].parent_i = i;
+                cellDetails[i-1][j+1].parent_j = j;
+                printf("The destination cell is found\n");
+                tracePath(cellDetails, destx,desty,posx,posy);
+                foundDest = true;
+                return;
+            }
+                // If the successor is already on the closed
+                // list or if it is blocked, then ignore it.
+                // Else do the following
+                //si no esta en la close list y la celda no es un obstaculo calcule
+                //los valores de g h f
+            else if (closeList->isincloseL(i-1 ,j+1)==false && validCell(i-1,j+1)==true){
+                gNew = cellDetails[i][j].g + 14;
+                hNew = calculateHValue(i-1 , j+1, destx,desty);
+                fNew = gNew+hNew;
+                // If it isn’t on the open list, add it to
+                // the open list. Make the current square
+                // the parent of this square. Record the
+                // f, g, and h costs of the square cell
+                //                OR
+                // If it is on the open list already, check
+                // to see if this path to that square is
+                // better, using 'f' cost as the measure.
+                if (cellDetails[i-1][j+1].f == 99 || cellDetails[i -1][j+1].f > fNew) {
+                    openList->insertFirst(i-1,j+1,fNew);
+
+                    // Update the details of this cell
+                    cellDetails[i-1 ][j+1].f = fNew;
+                    cellDetails[i-1][j+1].g = gNew;
+                    cellDetails[i-1][j+1].h = hNew;
+                    cellDetails[i-1][j+1].parent_i = i;
+                    cellDetails[i-1][j+1].parent_j = j;
+                    cout<<"el sucesor escogido es el NOreste"<<endl;
+                }
+            }
+        }
+        //caso NOROESTE*****************
+        if (isValid(i-1 , j-1) == true) {
+            // If the destination cell is the same as the
+            // current successor
+            if (isDestination(i-1 , j-1, destx, desty) == true) {
+                // Set the Parent of the destination cell
+                cellDetails[i-1][j-1].parent_i = i;
+                cellDetails[i-1][j-1].parent_j = j;
+                printf("The destination cell is found\n");
+                tracePath(cellDetails, destx,desty,posx,posy);
+                foundDest = true;
+                return;
+            }
+                // If the successor is already on the closed
+                // list or if it is blocked, then ignore it.
+                // Else do the following
+                //si no esta en la close list y la celda no es un obstaculo calcule
+                //los valores de g h f
+            else if(closeList->isincloseL(i-1 ,j-1)==false && validCell(i-1,j-1)==true){
+                cout<<"entre aca con un valid cell de"<<i-1<<"y"<<j-1<<"para un valid cell de "<<validCell(i-1,j-1)<<endl;
+                gNew = cellDetails[i][j].g + 14;
+                hNew = calculateHValue(i-1 , j-1, destx,desty);
+                fNew = gNew+hNew;
+                // If it isn’t on the open list, add it to
+                // the open list. Make the current square
+                // the parent of this square. Record the
+                // f, g, and h costs of the square cell
+                //                OR
+                // If it is on the open list already, check
+                // to see if this path to that square is
+                // better, using 'f' cost as the measure.
+                if (cellDetails[i-1 ][j-1].f == 99 || cellDetails[i -1][j-1].f > fNew) {
+                    openList->insertFirst(i-1,j-1,fNew);
+
+                    // Update the details of this cell
+                    cellDetails[i-1 ][j-1].f = fNew;
+                    cellDetails[i-1][j-1].g = gNew;
+                    cellDetails[i-1][j-1].h = hNew;
+                    cellDetails[i-1][j-1].parent_i = i;
+                    cellDetails[i-1][j-1].parent_j = j;
+                    cout<<"el sucesor escogido es el NOrOeste"<<endl;
+                }
+            }
+        }
+        //caso 7 SURESTE.
+        if (isValid(i+1 , j+1) == true) {
+            // If the destination cell is the same as the
+            // current successor
+            if (isDestination(i+1 , j+1, destx, desty) == true) {
+                // Set the Parent of the destination cell
+                cellDetails[i+1][j+1].parent_i = i;
+                cellDetails[i+1][j+1].parent_j = j;
+                printf("The destination cell is found\n");
+                tracePath(cellDetails, destx,desty,posx,posy);
+                foundDest = true;
+                return;
+            }
+                // If the successor is already on the closed
+                // list or if it is blocked, then ignore it.
+                // Else do the following
+                //si no esta en la close list y la celda no es un obstaculo calcule
+                //los valores de g h f
+            else if (closeList->isincloseL(i+1 ,j+1)==false && validCell(i+1,j+1)==true){
+                cout<<"entre aca con un valid cell de"<<i-1<<"y"<<j-1<<"para un valid cell de "<<validCell(i-1,j-1)<<endl;
+                gNew = cellDetails[i][j].g + 14;
+                hNew = calculateHValue(i+1 , j+1, destx,desty);
+                fNew = gNew+hNew;
+                // If it isn’t on the open list, add it to
+                // the open list. Make the current square
+                // the parent of this square. Record the
+                // f, g, and h costs of the square cell
+                //                OR
+                // If it is on the open list already, check
+                // to see if this path to that square is
+                // better, using 'f' cost as the measure.
+                if (cellDetails[i+1 ][j+1].f == 99 || cellDetails[i +1][j+1].f > fNew) {
+                    openList->insertFirst(i+1,j+1,fNew);
+
+                    // Update the details of this cell
+                    cellDetails[i+1 ][j+1].f = fNew;
+                    cellDetails[i+1][j+1].g = gNew;
+                    cellDetails[i+1][j+1].h = hNew;
+                    cellDetails[i+1][j+1].parent_i = i;
+                    cout<<"mi J es"<<j<<endl;
+                    cellDetails[i+1][j+1].parent_j = j;
+                    cout<<"el sucesor escogido es el sureste"<<endl;
+                    cout<<"EL VALOR DE J EN LA MATRIZ AHORA ES"<<cellDetails[i+1][j+1].parent_j<<endl;
+                }
+            }
+        }
+        //caso 8 SUROESTE
+        if (isValid(i+1 , j-1) == true) {
+            // If the destination cell is the same as the
+            // current successor
+            if (isDestination(i+1 , j-1, destx, desty) == true) {
+                // Set the Parent of the destination cell
+                cellDetails[i+1][j-1].parent_i = i;
+                cellDetails[i+1][j-1].parent_j = j;
+                printf("The destination cell is found\n");
+                tracePath(cellDetails, destx,desty,posx,posy);
+                foundDest = true;
+                return;
+            }
+                // If the successor is already on the closed
+                // list or if it is blocked, then ignore it.
+                // Else do the following
+                //si no esta en la close list y la celda no es un obstaculo calcule
+                //los valores de g h f
+            else if (closeList->isincloseL(i+1 ,j-1)==false && validCell(i+1,j-1)==true){
+                gNew = cellDetails[i][j].g + 14;
+                hNew = calculateHValue(i+1 , j-1, destx,desty);
+                fNew = gNew+hNew;
+                // If it isn’t on the open list, add it to
+                // the open list. Make the current square
+                // the parent of this square. Record the
+                // f, g, and h costs of the square cell
+                //                OR
+                // If it is on the open list already, check
+                // to see if this path to that square is
+                // better, using 'f' cost as the measure.
+                if (cellDetails[i+1 ][j-1].f == 99 || cellDetails[i +1][j-1].f > fNew) {
+                    openList->insertFirst(i+1,j-1,fNew);
+
+                    // Update the details of this cell
+                    cellDetails[i+1 ][j-1].f = fNew;
+                    cellDetails[i+1][j-1].g = gNew;
+                    cellDetails[i+1][j-1].h = hNew;
+                    cellDetails[i+1][j-1].parent_i = i;
+                    cellDetails[i+1][j-1].parent_j = j;
+                    cout<<"el sucesor escogido es el suroeste"<<endl;
                 }
             }
         }

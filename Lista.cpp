@@ -104,12 +104,11 @@ Node *Lista::minorF() { //metodo para la open list
         current2=current;
         current = current->getNext();
     }
-    cout<<"se pasa el recorrido de menor f"<<endl;
+
     current = current2;
-    cout<<"se pasa el recorrido de menor fxd"<<endl;
+
     deleteNode(current2);
-    cout<<"se pasa el deleteNOde de menor f"<<endl;
-    cout<<"se pasa el deleteNOde de menor f"<<endl;
+
     //delete current; this is the node that ill be deleting from the list.
     return current;
 }

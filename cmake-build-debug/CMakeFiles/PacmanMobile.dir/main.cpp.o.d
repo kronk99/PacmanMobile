@@ -293,4 +293,5 @@ CMakeFiles/PacmanMobile.dir/main.cpp.o: \
  /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Enemy.h \
  /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Vida.h \
  /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Lista.h \
- /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Node.h
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Node.h \
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/pathfindingA.h
