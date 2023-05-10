@@ -58,7 +58,7 @@ SDL_Rect*  Player::getRect(){
     return &destino;
 }
 int Player::getX(){
-    cout<<"el X es"<<posx<<endl;
+    //cout<<"el X es"<<posx<<endl;
     return this->posx;
 }
 int Player::getY(){
@@ -67,7 +67,7 @@ int Player::getY(){
 
 void Player::sumposCounter() {
     posCounter++;
-    cout<<"se sumo posx"<<endl;
+    //cout<<"se sumo posx"<<endl;
 }
 bool Player::checkCOunter() {
     if(posCounter%2==0){ //esto es 2 por que el jugador se mueve 12 pixeles, 12+12 24
@@ -82,7 +82,7 @@ bool Player::checkCOunter() {
 }
 void Player::sumposyCounter() {
     posyCounter++;
-    cout<<"se sumo posy"<<endl;
+    //cout<<"se sumo posy"<<endl;
 }
 bool Player::checkyCounter() {
     if(posyCounter %2 ==0){ //esto es 2 por que el jugador se mueve 12 pixeles, 12+12 24

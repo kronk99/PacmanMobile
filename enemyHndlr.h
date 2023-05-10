@@ -18,8 +18,9 @@ public:
     void updateallEnemies(); //updates all enemies.
     void lvlup(const char* texture);
     int getCurrentEnemies();
-
     Enemy* getEnemy(int number);
+    void spetialEmoves(bool flag);
+    bool checkPowercollision(int x, int y);
 };
 
 

@@ -26,6 +26,7 @@ private:
     Score *score;
     enemyHndlr *enemigos;
     Vida *vida;
+    bool LOCK;
 
     //enemyList* pruebaenemigo;
 public:
@@ -44,6 +45,8 @@ public:
     void movenCheckEnemy();
 
     void PnEcollision();
+    void checkScore();
+    void checkPcolision();
 };
 
 

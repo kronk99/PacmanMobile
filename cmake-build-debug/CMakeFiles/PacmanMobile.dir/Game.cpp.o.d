@@ -287,14 +287,16 @@ CMakeFiles/PacmanMobile.dir/Game.cpp.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/pathfindingA.h \
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Lista.h \
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Node.h \
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Pila.h \
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Pnode.h \
  /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Player.h \
  /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Score.h \
- /usr/include/SDL2/SDL_ttf.h \
- /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/enemyHndlr.h \
- /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Enemy.h \
- /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Vida.h \
- /usr/include/c++/11/random /usr/include/c++/11/bits/random.h \
- /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_uninitialized.h \
+ /usr/include/SDL2/SDL_ttf.h /usr/include/c++/11/random \
+ /usr/include/c++/11/bits/random.h /usr/include/c++/11/vector \
+ /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc \
@@ -303,4 +305,7 @@ CMakeFiles/PacmanMobile.dir/Game.cpp.o: \
  /usr/include/c++/11/bits/random.tcc /usr/include/c++/11/numeric \
  /usr/include/c++/11/bits/stl_numeric.h /usr/include/c++/11/bit \
  /usr/include/c++/11/pstl/glue_numeric_defs.h \
- /usr/include/c++/11/pstl/execution_defs.h
+ /usr/include/c++/11/pstl/execution_defs.h \
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/enemyHndlr.h \
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Enemy.h \
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Vida.h

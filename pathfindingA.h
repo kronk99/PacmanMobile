@@ -7,6 +7,7 @@
 #include "Lista.h"
 #include <iostream>
 #include "Map.h"
+#include "Pila.h"
 class pathfindingA {//had to do the struct as global , could not implement it
     //as a private attribute of this class.
     struct cell {
@@ -20,6 +21,7 @@ private:
     static pathfindingA* pointer;
     Lista *openList;
     Lista *closeList;
+    Pila* newPila;
 public:
     pathfindingA();
     static pathfindingA *getInstance();
@@ -32,6 +34,7 @@ public:
     int calculateHValue(int row, int col, int destx, int desty);
     void aStarSearch(int [22][22] , int posx, int posy , int destx ,int desty);
     void tracePath(cell cellDetails[22][22], int destx ,int desty ,int orgenx, int origeny);
+    Pila* getpila();
 };
 
 

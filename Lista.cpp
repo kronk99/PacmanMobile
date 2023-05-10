@@ -28,13 +28,13 @@ void Lista::insertLast(int x, int y, int F){
         newnode->setPrevious(last);
         last = newnode;
         size++;
-        cout<<"se creo un nuevo bullet"<<endl;
+        //cout<<"se creo un nuevo bullet"<<endl;
     }
     else{ /**si no, cree un nuevo nodo y asigneselo al puntero head*/
         this->head =new Node(x,  y, F);
         this->last = head;
         size++;
-        cout<<"se creo un nuevo bullet"<<endl;
+        //cout<<"se creo un nuevo bullet"<<endl;
     }
 }
 
@@ -45,14 +45,14 @@ void Lista::deleteFirst() { //ACA CUANDO HACE DELETE,
     if( size !=0){
         head = head->getNext();
         //head->setNext(nullptr);
-        cout<<"se va a eliminar un nodo "<<endl;
+        //cout<<"se va a eliminar un nodo "<<endl;
         //totalmente o reciclarla.
         closeList->insertNode(current);
-        cout<<"se pudo pasar el delete de la lista"<<endl;
+        //cout<<"se pudo pasar el delete de la lista"<<endl;
         size--;
     }
     else{
-        cout<<"lista vacia"<<endl;
+        //cout<<"lista vacia"<<endl;
     }
 }
 
@@ -60,7 +60,7 @@ void Lista::deleteFirst() { //ACA CUANDO HACE DELETE,
 void Lista::printList() {
     Node *currente = head;
     for(int i=0;i<size;i++){
-        cout<< "la bala  es:"<< currente<<endl;
+        //cout<< "la bala  es:"<< currente<<endl;
         currente=currente->getNext();
     }
 }
@@ -114,30 +114,30 @@ Node *Lista::minorF() { //metodo para la open list
 }
 
 void Lista::deleteNode(Node *nodo) {
-    cout<<"legue aca"<<endl;
+    //cout<<"legue aca"<<endl;
     //LLEGUE ACA , EL CURRENT 2 SI LO AGARRA, VER SI EL QUE IMPRIME ES EL CORRECTO.
     
     //casos :
     if(size >1){
         current2 = nodo->getPrevious();
         if(nodo ==head){
-            cout<<"entre al metodo 2"<<endl;
+            //cout<<"entre al metodo 2"<<endl;
             closeList->insertNode(nodo);
             head = nodo->getNext();
             head->setPrevious(nullptr);
-            cout<<"el nodo es head"<<endl;
+            //cout<<"el nodo es head"<<endl;
 
         }
         else if(nodo ==last){
-            cout<<"entre al metodo 2"<<endl;
+            //cout<<"entre al metodo 2"<<endl;
             current2->setNext(nullptr);
-            cout<<"entre al metodo x"<<endl;
+            //cout<<"entre al metodo x"<<endl;
             last = current2;
             closeList->insertNode(nodo);
-            cout<<"el nodo es la cola"<<endl;
+            //cout<<"el nodo es la cola"<<endl;
         }
         else{
-            cout<<"el nodo no es ni la cabeza ni la cola"<<endl;
+            //cout<<"el nodo no es ni la cabeza ni la cola"<<endl;
             //caso estoy en el medio de 2 nodos  y caso donde pueden ser 3.
             current2->setNext(nodo->getNext());
             if(nodo->getNext() != nullptr){
@@ -149,14 +149,14 @@ void Lista::deleteNode(Node *nodo) {
     }
     else if (size==1){
         current2 = nodo->getPrevious();
-        cout<<"la lista solo tiene 1 nodo"<<endl;
+        //cout<<"la lista solo tiene 1 nodo"<<endl;
         closeList->insertNode(nodo);
         head= nullptr;
         last= nullptr;
         size--;
     }
     else{
-        cout<<"lista vacia"<<endl;
+        //cout<<"lista vacia"<<endl;
     }
 }
 

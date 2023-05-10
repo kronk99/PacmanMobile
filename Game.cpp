@@ -39,10 +39,11 @@ void Game::init(const char *title, int posx, int posy, int width, int lenght, bo
     //enemigo->changeDirection(3);
     enemigos = new enemyHndlr(renderer);
     score=new Score(renderer);
-    enemigos->lvlup("../Textures/slimerojo.png");
-    enemigos->lvlup("../Textures/slimeverde.png");
-    enemigos->lvlup("../Textures/slimenaranja.png");
+   // enemigos->lvlup("../Textures/slimerojo.png");
+    //enemigos->lvlup("../Textures/slimeverde.png");
+    //enemigos->lvlup("../Textures/slimenaranja.png");
     vida = new Vida(renderer);
+    LOCK=false;
 }
 void Game::update() {
     //aca deberia de meterle un metodo que sea handle arduino, entonces
@@ -50,9 +51,11 @@ void Game::update() {
     //que se meta al if, y le haga player->updatePos
     //ACTUALIZA LA POSICION Y MOVIMIENTO DE IMAGENES.
     //cout<<"metodo update"<<endl;
+    checkScore();
     player->Update();
-    enemigos->moveallEnemies();
+    enemigos->moveallEnemies(); //ACA ESTA EL ERROR.
     enemigos->updateallEnemies();
+    checkPcolision();
     //enemigo->move();
     //enemigo->Update();
     PnEcollision();
@@ -183,17 +186,17 @@ bool Game::verifyCollision(int x , int y){
     //this is wall collision with player;
     //hay que hacer un if para verificar que no sea una pared
     if(Map::getInstance()->getMapa(y/32,x/32)==2){
-        cout<<"entre donde hay colision"<<endl;
+        //cout<<"entre donde hay colision"<<endl;
         return true;
     }
     else{
-        cout<<"no hay colision"<<endl;
+        //cout<<"no hay colision"<<endl;
         return false;
     }
 }//this code is ok.
 void Game::playerMappos() {
     if(player->checkCOunter()==true && player->checkyCounter()==true){
-      cout<<"ESTOY en una casilla"<<endl;
+      //cout<<"ESTOY en una casilla"<<endl;
       if(Map::getInstance()->getMapa(player->getY()/32,player->getX()/32)==1){
           score->scoreOne(10);
           Map::getInstance()->changeMap(player->getY()/32,player->getX()/32,0);
@@ -211,6 +214,29 @@ void Game::PnEcollision(){
         if(SDL_HasIntersection(player->getRect() , enemigos->getEnemy(i)->getRect())){
             cout<<"EL FANTASMA SE COME AL JUGADOR"<<endl;
         }
+    }
+}
+
+void Game::checkScore() {
+    if(score->is200()==true &&LOCK==false){
+        enemigos->spetialEmoves(true);
+        score->spawnPower();
+        LOCK = true;
+        cout<<"POWER UP"<<endl;
+    }
+}
+
+void Game::checkPcolision() {
+    //hacer un if con respecto al lock para mayor rendimiento .
+    if(player->getX()==score->getpowerY() && player->getY()==score->getpowerX()){
+        enemigos->spetialEmoves(false);
+        LOCK=false;
+        cout<<"colision con el poder"<<endl;
+    }
+    if(enemigos->checkPowercollision(score->getpowerX(),score->getpowerY())==true){
+        enemigos->spetialEmoves(false);
+        LOCK = false;
+        cout<<"colision con el poder"<<endl;
     }
 }
 

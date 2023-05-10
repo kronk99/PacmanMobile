@@ -13,7 +13,7 @@ pathfindingA::pathfindingA() {
 }
 pathfindingA* pathfindingA::getInstance(){
     if(pointer== nullptr){
-        cout<<"pathfinding estaba nullo"<<endl;
+        //cout<<"pathfinding estaba nullo"<<endl;
         pointer = new pathfindingA();
         return pointer;
     }
@@ -62,6 +62,8 @@ void pathfindingA::tracePath(cell cellDetails[22][22], int destx ,int desty ,int
     printf("\nThe Path is ");
     int row = destx;
     int col = desty;
+    newPila = new Pila();
+    newPila->push(row ,col);
 //me hace falta una pila para este codigo.
    // stack<Pair> Path;
     //!(cellDetails[row][col].parent_i == destx && cellDetails[row][col].parent_j == desty
@@ -70,8 +72,9 @@ void pathfindingA::tracePath(cell cellDetails[22][22], int destx ,int desty ,int
 //cambiar el && por un or
         int temp_row = cellDetails[row][col].parent_i;
         int temp_col = cellDetails[row][col].parent_j;
-        cout<<"la ruta x es:"<<temp_row<<endl;
-        cout<<"la ruta y es:"<<temp_col<<endl;
+        cout<<"la ruta x DEL PATHFINDING es:"<<temp_row<<endl;
+        cout<<"la ruta y DEL PATHFINDING es:"<<temp_col<<endl;
+        newPila->push(temp_row ,temp_col);
         row = temp_row;
         col = temp_col;
         //basicamente tengo que añadir en la pila los temp_rows NO LOS ROW COL,añadiendo inicialmente
@@ -143,8 +146,8 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
         current = openList->minorF();
         i = current->getx();
         j = current->gety();
-        cout<<"mi x ahora es"<<i<<endl;
-        cout<<"mi y ahora es:"<<j<<endl;
+        //cout<<"mi x ahora es"<<i<<endl;
+        //cout<<"mi y ahora es:"<<j<<endl;
         //now we will genenerate the succesors.
         //int g, h, f; //for storing these values of the 8 succesors.
         //********************First succesor (North)********************
@@ -187,7 +190,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                     cellDetails[i - 1][j].h = hNew;
                     cellDetails[i - 1][j].parent_i = i;
                     cellDetails[i - 1][j].parent_j = j;
-                    cout<<"el sucesor escogido es el norte"<<endl;
+                    //cout<<"el sucesor escogido es el norte"<<endl;
                 }
             }
         }
@@ -230,7 +233,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                     cellDetails[i + 1][j].h = hNew;
                     cellDetails[i + 1][j].parent_i = i;
                     cellDetails[i + 1][j].parent_j = j;
-                    cout<<"el sucesor escogido es el sur"<<endl;
+                    //cout<<"el sucesor escogido es el sur"<<endl;
                 }
             }
         }
@@ -273,7 +276,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                     cellDetails[i ][j+1].h = hNew;
                     cellDetails[i ][j+1].parent_i = i;
                     cellDetails[i ][j+1].parent_j = j;
-                    cout<<"el sucesor escogido es el este"<<endl;
+                    //cout<<"el sucesor escogido es el este"<<endl;
                 }
             }
         }
@@ -316,7 +319,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                     cellDetails[i ][j-1].h = hNew;
                     cellDetails[i ][j-1].parent_i = i;
                     cellDetails[i ][j-1].parent_j = j;
-                    cout<<"el sucesor escogido es el Oeste"<<endl;
+                    //cout<<"el sucesor escogido es el Oeste"<<endl;
                 }
             }
         }
@@ -359,7 +362,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                     cellDetails[i-1][j+1].h = hNew;
                     cellDetails[i-1][j+1].parent_i = i;
                     cellDetails[i-1][j+1].parent_j = j;
-                    cout<<"el sucesor escogido es el NOreste"<<endl;
+                  //  cout<<"el sucesor escogido es el NOreste"<<endl;
                 }
             }
         }
@@ -382,7 +385,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                 //si no esta en la close list y la celda no es un obstaculo calcule
                 //los valores de g h f
             else if(closeList->isincloseL(i-1 ,j-1)==false && validCell(i-1,j-1)==true){
-                cout<<"entre aca con un valid cell de"<<i-1<<"y"<<j-1<<"para un valid cell de "<<validCell(i-1,j-1)<<endl;
+                //cout<<"entre aca con un valid cell de"<<i-1<<"y"<<j-1<<"para un valid cell de "<<validCell(i-1,j-1)<<endl;
                 gNew = cellDetails[i][j].g + 14;
                 hNew = calculateHValue(i-1 , j-1, destx,desty);
                 fNew = gNew+hNew;
@@ -403,7 +406,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                     cellDetails[i-1][j-1].h = hNew;
                     cellDetails[i-1][j-1].parent_i = i;
                     cellDetails[i-1][j-1].parent_j = j;
-                    cout<<"el sucesor escogido es el NOrOeste"<<endl;
+                    //cout<<"el sucesor escogido es el NOrOeste"<<endl;
                 }
             }
         }
@@ -448,8 +451,8 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                     cellDetails[i+1][j+1].parent_i = i;
                     cout<<"mi J es"<<j<<endl;
                     cellDetails[i+1][j+1].parent_j = j;
-                    cout<<"el sucesor escogido es el sureste"<<endl;
-                    cout<<"EL VALOR DE J EN LA MATRIZ AHORA ES"<<cellDetails[i+1][j+1].parent_j<<endl;
+                    //cout<<"el sucesor escogido es el sureste"<<endl;
+                    //cout<<"EL VALOR DE J EN LA MATRIZ AHORA ES"<<cellDetails[i+1][j+1].parent_j<<endl;
                 }
             }
         }
@@ -492,7 +495,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                     cellDetails[i+1][j-1].h = hNew;
                     cellDetails[i+1][j-1].parent_i = i;
                     cellDetails[i+1][j-1].parent_j = j;
-                    cout<<"el sucesor escogido es el suroeste"<<endl;
+                   // cout<<"el sucesor escogido es el suroeste"<<endl;
                 }
             }
         }
@@ -506,4 +509,8 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
         printf("Failed to find the Destination Cell\n");
 
     return;
+}
+
+Pila *pathfindingA::getpila() {
+    return this->newPila;
 }

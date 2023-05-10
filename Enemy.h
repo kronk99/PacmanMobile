@@ -8,7 +8,7 @@
 #include "textureLoader.h"
 #include <iostream>
 #include "Map.h"
-
+#include "pathfindingA.h"
 class Enemy {
 private:
     int posx;
@@ -22,6 +22,10 @@ private:
     int county;
     int paths;
     int route[3];
+    Pila *pila; //pila cuando
+    bool flag;
+    int type; //tipo de movimiento, backtracking o pathfinding.
+    int number;
 public:
     Enemy(const char* texture,SDL_Renderer* renders ,int velocidad);
     void renderEnemy();
@@ -50,6 +54,9 @@ public:
 
     void checkSurround();
     SDL_Rect* getRect();
+    void setFLag(bool flag);
+    void deletePila();
+    void specialMove(int x, int y);
 };
 
 

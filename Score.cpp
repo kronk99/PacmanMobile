@@ -5,10 +5,12 @@
 #include "Score.h"
 //creo que tengo que hacer el score singleton
 bool Score::is200() {
-    if(currentScore % 200 !=0){
-        return false;
-    }else{
+    if(countScore==200){
+        cout<<"es 200!!"<<endl;
+        countScore=0;
         return true;
+    }else{
+        return false;
     }
 
 }
@@ -19,6 +21,7 @@ Score::Score(SDL_Renderer *renders) {
     //TTF_Quit(); //Usar esto cuando se cierra el juego. no aca
     this->render = renders;
     this->currentScore =0;
+    countScore=0;
     Color = {255,255,255,255};
     Color2 = {0,0,0,0};
     destino.x = 128;
@@ -41,5 +44,35 @@ void Score::renderSCore() {
 
 void Score::scoreOne(int number) {
     currentScore+=number;
+    countScore+=number;
 
+}
+
+void Score::spawnPower() {
+    //optimizar es poniendo en un array a la hora de crear el gamemap
+    //las casillas que no sean obstaculos y aca, con un random de el poder.
+    bool spawngood = false;
+    while(spawngood ==false){
+        random_device rd, dd;
+        std::uniform_int_distribution<int> randomx(0, 21);
+        std::uniform_int_distribution<int> randomy(0, 21);
+        int randomNum = randomx(rd);
+        int randomNum2 = randomy(dd);
+        if(Map::getInstance()->getMapa(randomNum,randomNum2)!=2){
+            spawngood =true;
+            powerX = randomNum;
+            powerY=randomNum2;
+            Map::getInstance()->setpowerpos(randomNum,randomNum2);
+        }
+    }
+    cout<<"EL X DEL SCORE es "<<powerX<<endl;
+    cout<<"EL Y DEL SCORE es"<<powerY<<endl;
+}
+
+int Score::getpowerX() {
+    return powerX;
+}
+
+int Score::getpowerY() {
+    return powerY;
 }

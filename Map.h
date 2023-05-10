@@ -7,6 +7,7 @@
 #include <SDL2/SDL.h>
 #include "textureLoader.h"
 #include <iostream>
+#include "pathfindingA.h"
 
 class Map {
 private:
@@ -17,6 +18,8 @@ private:
     SDL_Texture *comida;
     int mapa[22][22];
     static Map* pointer;
+    int powerx;
+    int powery;
 public:
     Map();
 //falta un deconstructor
@@ -36,6 +39,9 @@ public:
     static Map* getInstance();
 
     bool enemyColision(int x, int y);
+    void makepath(int posx, int posy);
+    void setpowerpos(int x, int y);
+
 };
 
 

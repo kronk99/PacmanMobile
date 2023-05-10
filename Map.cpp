@@ -68,7 +68,7 @@ void Map::loadMap(int array[22][22]) {
             mapa[row][colum]=array[row][colum];
         }
     }
-    cout<<"la posicion 1 es:"<<mapa[0][0]<<endl;
+    //cout<<"la posicion 1 es:"<<mapa[0][0]<<endl;
 }
 void Map::changeMap(int fila,int col, int valtoChange){
     mapa[fila][col] =valtoChange;
@@ -120,7 +120,7 @@ int Map::getMapa(int a, int b){
 
 Map *Map::getInstance() {
     if(pointer== nullptr){
-        cout<<"el gcolector estaba nulo"<<endl;
+        //cout<<"el gcolector estaba nulo"<<endl;
         pointer = new Map();
         return pointer;
     }
@@ -134,3 +134,13 @@ void Map::insertRender(SDL_Renderer *renderers) {
     comida=textureLoader::getTextureloader()->Loadtexture("../Textures/food.png", renderer);
     pared =textureLoader::getTextureloader()->Loadtexture("../Textures/wall.png", renderer);
 }
+
+void Map::makepath(int posx, int posy) {
+    pathfindingA::getInstance()->aStarSearch(mapa,posx,posy,powerx,powery);
+}
+
+void Map::setpowerpos(int x, int y) {
+    powerx=x;
+    powery=y;
+}
+

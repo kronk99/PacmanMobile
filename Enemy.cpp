@@ -16,7 +16,9 @@ Enemy::Enemy(const char* texture,SDL_Renderer *renders , int velocidad) {
     velocity = velocidad;
     county=0;
     countx=0;
-
+    flag=false;
+    pila= nullptr; //IMPORTANTE NO QUITAR.SI SE QUITA PRODUCE SEGM FAULT
+    number=0;
 }
 void Enemy::Update(){
     //aca habria que hacer un if, por si las imagenes de los 4 fantasmas distintos
@@ -92,20 +94,69 @@ int Enemy::getDirection(){
 }
 
 void Enemy::move() { //mueve al jugador , debo de poner siempreel direction a la izquierda
-
+//HAGA ESTE MOVIMIENTO CUANDO LA PILA ESTA VACIA.
+//SI la pila no esta vacia , haga el otro movimiento.
+//en ese otro movimiento, si la flag == false, ponga el x ,y al nodo màs cercano y
+//elimine la pila.
     //si no esta encima de una casilla , sigase moviendo.
-    if(checkCounterx() == true || checkCountery() == true){
-        //cout<<"no estoy moviendome"<<endl;
-        checkSurround();
-        countx =0;
-        county=0;
-        random_device rd;
-        std::uniform_int_distribution<int> randomx(0, paths-1);
-        int randomNum = randomx(rd);
-        direction = route[randomNum];
+    if(number==0){
+        if(checkCounterx() == true || checkCountery() == true){
+            //cout<<"no estoy moviendome"<<endl;
+            if(flag==false){
+                checkSurround();
+                countx =0;
+                county=0;
+                random_device rd;
+                std::uniform_int_distribution<int> randomx(0, paths-1);
+                int randomNum = randomx(rd);
+                direction = route[randomNum];
+            }
+            else{
+                //cout<<"la pos x es "<<posx<<"y la pos y es"<<posy<<endl;
+                //ESTA POSY Y POS X DEBE DIVIDIRSE ENTRE 32
+                countx=0;
+                county=0;
+                cout<<"LA FILA ENEMIGO ES"<< posy/32<<endl;
+                cout<<"COLUMNA ENEMIGO"<< posx/32<<endl;
+                Map::getInstance()->makepath(posy/32,posx/32);//CREO QUE ESTO
+                //DAÑA EL CODIGO , me tira origen invalido
+                pila=pathfindingA::getInstance()->getpila();
+                number = pila->getSize();
+                cout<<"EL NUMERO CONDICIONAL ES"<<number<<endl;
+                cout<<"el primer x es:"<<pila->getX()<<endl;
+                cout<<"el primer y es:"<<pila->getY()<<endl;
+                posx = pila->getY()*32;
+                posy = pila->getX()*32;
+            }
+        }
+        else{ //si esta encima de una casilla..
+            moveEnemy();
+
+        }
     }
-    else{ //si esta encima de una casilla..
-        moveEnemy();
+    else{
+        if(flag ==true){ //LA FLAG NO SE ESTA HACIENDO FALSE CUANDO HACE all
+            //RECORRIDO.
+            specialMove(pila->getY()*32 ,pila->getX()*32);
+            pila->pop();
+            number--;
+            cout<<"entre al otro movimiento"<<endl;
+        }
+        else{
+            deletePila();
+            //creo que si llega el mismo al poder no elimina la pila, caso donde
+            //este fantasma haya llegado , por lo que hay que hacer a mano un metodo
+            //delete pila.
+            number=0;
+            countx =0;
+            county=0;
+            checkSurround();
+            random_device rd;
+            std::uniform_int_distribution<int> randomx(0, paths-1);
+            int randomNum = randomx(rd);
+            direction = route[randomNum];
+            cout<<"SE VA A CAMBIAR AL MOV NORMAL"<<endl;
+        }
     }
 }
 void Enemy::checkSurround(){ //checkea casillas al rededor;
@@ -207,4 +258,23 @@ bool Enemy::checkCountery() {
 SDL_Rect *Enemy::getRect() {
     return &destino;
 }
+
+void Enemy::setFLag(bool flags) {
+    this->flag =flags;
+}
+
+void Enemy::specialMove(int x, int y) {
+    posx=x;
+    posy = y;
+}
+
+void Enemy::deletePila() {
+    int end = pila->getSize();
+    for (int i=0;i<end;i++){
+        pila->pop();
+    }
+    delete pila;
+    pila =nullptr;
+}
+
 

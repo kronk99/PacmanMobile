@@ -285,4 +285,9 @@ CMakeFiles/PacmanMobile.dir/Map.cpp.o: \
  /usr/include/c++/11/bits/locale_facets.tcc \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
- /usr/include/c++/11/bits/istream.tcc
+ /usr/include/c++/11/bits/istream.tcc \
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/pathfindingA.h \
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Lista.h \
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Node.h \
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Pila.h \
+ /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Pnode.h
