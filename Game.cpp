@@ -43,6 +43,7 @@ void Game::init(const char *title, int posx, int posy, int width, int lenght, bo
     enemigos->lvlup("../Textures/slimeverde.png");
     enemigos->lvlup("../Textures/slimenaranja.png");
     vida = new Vida(renderer);
+    LOCK=false;
 }
 void Game::update() {
     //aca deberia de meterle un metodo que sea handle arduino, entonces
@@ -50,9 +51,15 @@ void Game::update() {
     //que se meta al if, y le haga player->updatePos
     //ACTUALIZA LA POSICION Y MOVIMIENTO DE IMAGENES.
     //cout<<"metodo update"<<endl;
+    checkScore();
+    cout<<"pasa el checkscore"<<endl;
     player->Update();
-    enemigos->moveallEnemies();
+    cout<<"pasa el player"<<endl;
+    enemigos->moveallEnemies(); //ACA ESTA EL ERROR.
+    cout<<"pasa el moveallEnemies"<<endl;
     enemigos->updateallEnemies();
+    cout<<"paso el movimiento de enemigos"<<endl;
+    checkPcolision();
     //enemigo->move();
     //enemigo->Update();
     PnEcollision();
@@ -211,6 +218,27 @@ void Game::PnEcollision(){
         if(SDL_HasIntersection(player->getRect() , enemigos->getEnemy(i)->getRect())){
             cout<<"EL FANTASMA SE COME AL JUGADOR"<<endl;
         }
+    }
+}
+
+void Game::checkScore() {
+    if(score->is200()==true &&LOCK==false){
+        enemigos->spetialEmoves(true);
+        score->spawnPower();
+        LOCK = true;
+        cout<<"POWER UP"<<endl;
+    }
+}
+
+void Game::checkPcolision() {
+    //hacer un if con respecto al lock para mayor rendimiento .
+    if(player->getX()==score->getpowerY() && player->getY()==score->getpowerX()){
+        enemigos->spetialEmoves(false);
+        LOCK=false;
+    }
+    if(enemigos->checkPowercollision(score->getpowerX(),score->getpowerY())==true){
+        enemigos->spetialEmoves(false);
+        LOCK = false;
     }
 }
 

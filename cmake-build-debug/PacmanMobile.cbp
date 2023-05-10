@@ -112,10 +112,22 @@
 		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Node.h">
 			<Option target="PacmanMobile"/>
 		</Unit>
+		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Pila.cpp">
+			<Option target="PacmanMobile"/>
+		</Unit>
+		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Pila.h">
+			<Option target="PacmanMobile"/>
+		</Unit>
 		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Player.cpp">
 			<Option target="PacmanMobile"/>
 		</Unit>
 		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Player.h">
+			<Option target="PacmanMobile"/>
+		</Unit>
+		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Pnode.cpp">
+			<Option target="PacmanMobile"/>
+		</Unit>
+		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Pnode.h">
 			<Option target="PacmanMobile"/>
 		</Unit>
 		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Score.cpp">

@@ -16,6 +16,8 @@ Enemy::Enemy(const char* texture,SDL_Renderer *renders , int velocidad) {
     velocity = velocidad;
     county=0;
     countx=0;
+    flag=false;
+    pila= nullptr; //IMPORTANTE NO QUITAR.SI SE QUITA PRODUCE SEGM FAULT
 
 }
 void Enemy::Update(){
@@ -92,20 +94,49 @@ int Enemy::getDirection(){
 }
 
 void Enemy::move() { //mueve al jugador , debo de poner siempreel direction a la izquierda
-
+//HAGA ESTE MOVIMIENTO CUANDO LA PILA ESTA VACIA.
+//SI la pila no esta vacia , haga el otro movimiento.
+//en ese otro movimiento, si la flag == false, ponga el x ,y al nodo màs cercano y
+//elimine la pila.
     //si no esta encima de una casilla , sigase moviendo.
-    if(checkCounterx() == true || checkCountery() == true){
-        //cout<<"no estoy moviendome"<<endl;
-        checkSurround();
-        countx =0;
-        county=0;
-        random_device rd;
-        std::uniform_int_distribution<int> randomx(0, paths-1);
-        int randomNum = randomx(rd);
-        direction = route[randomNum];
+    if(pila== nullptr){
+        if(checkCounterx() == true || checkCountery() == true){
+            //cout<<"no estoy moviendome"<<endl;
+            if(flag==false){
+                checkSurround();
+                countx =0;
+                county=0;
+                random_device rd;
+                std::uniform_int_distribution<int> randomx(0, paths-1);
+                int randomNum = randomx(rd);
+                direction = route[randomNum];
+            }
+            else{
+                Map::getInstance()->makepath(posy,posx);//CREO QUE ESTO
+                //DAÑA EL CODIGO
+                pila=pathfindingA::getInstance()->getpila();
+            }
+        }
+        else{ //si esta encima de una casilla..
+            moveEnemy();
+
+        }
     }
-    else{ //si esta encima de una casilla..
-        moveEnemy();
+    else{
+        if(checkCounterx() == true || checkCountery() == true){
+            //cout<<"no estoy moviendome"<<endl;
+            if(flag==true){
+                countx =0;
+                county=0;
+                pila->pop();
+            }
+            else{
+                deletePila();
+            }
+        }
+        else{ //si esta encima de una casilla..
+            specialMove(pila->getX(),pila->getY());
+        }
     }
 }
 void Enemy::checkSurround(){ //checkea casillas al rededor;
@@ -207,4 +238,41 @@ bool Enemy::checkCountery() {
 SDL_Rect *Enemy::getRect() {
     return &destino;
 }
+
+void Enemy::setFLag(bool flags) {
+    this->flag =flags;
+}
+
+void Enemy::specialMove(int x, int y) {
+    if (x!=posy){
+        if(x>posy){
+            posy++;
+            county++;
+        }
+        else{
+            posy--;
+            county++;
+        }
+    }
+    if(y!=posx){
+        if(y>posx){
+            posx++;
+            countx++;
+        }
+        else{
+            posx--;
+            countx++;
+        }
+    }
+}
+
+void Enemy::deletePila() {
+    int end = pila->getSize();
+    for (int i=0;i<end;i++){
+        pila->pop();
+    }
+    delete pila;
+    pila =nullptr;
+}
+
 

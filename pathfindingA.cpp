@@ -62,6 +62,8 @@ void pathfindingA::tracePath(cell cellDetails[22][22], int destx ,int desty ,int
     printf("\nThe Path is ");
     int row = destx;
     int col = desty;
+    newPila = new Pila();
+    newPila->push(row ,col);
 //me hace falta una pila para este codigo.
    // stack<Pair> Path;
     //!(cellDetails[row][col].parent_i == destx && cellDetails[row][col].parent_j == desty
@@ -72,6 +74,7 @@ void pathfindingA::tracePath(cell cellDetails[22][22], int destx ,int desty ,int
         int temp_col = cellDetails[row][col].parent_j;
         cout<<"la ruta x es:"<<temp_row<<endl;
         cout<<"la ruta y es:"<<temp_col<<endl;
+        newPila->push(temp_row ,temp_col);
         row = temp_row;
         col = temp_col;
         //basicamente tengo que añadir en la pila los temp_rows NO LOS ROW COL,añadiendo inicialmente
@@ -506,4 +509,8 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
         printf("Failed to find the Destination Cell\n");
 
     return;
+}
+
+Pila *pathfindingA::getpila() {
+    return this->newPila;
 }

@@ -134,3 +134,13 @@ void Map::insertRender(SDL_Renderer *renderers) {
     comida=textureLoader::getTextureloader()->Loadtexture("../Textures/food.png", renderer);
     pared =textureLoader::getTextureloader()->Loadtexture("../Textures/wall.png", renderer);
 }
+
+void Map::makepath(int posx, int posy) {
+    pathfindingA::getInstance()->aStarSearch(mapa,posx,posy,powerx,powery);
+}
+
+void Map::setpowerpos(int x, int y) {
+    powerx=x;
+    powery=y;
+}
+

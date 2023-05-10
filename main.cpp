@@ -21,7 +21,7 @@ int main() {
     closeLIst->printList();
     closeLIst->trueDelete();
     closeLIst->printList();*/
-
+/*
     int lvl1[22][22]={
             //significado de los numeros:
             // 0 implica que no hay comida ni objetos(pacman paso por ahi)
@@ -50,8 +50,8 @@ int main() {
             {2,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2},
             {2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2},
     };
-    pathfindingA::getInstance()->aStarSearch(lvl1,2,1,12,9);
-    /*
+    pathfindingA::getInstance()->aStarSearch(lvl1,2,1,12,9);*/
+
     const int fps=60;
     const int frameDelay = 1000/fps;
     Uint32 frameStart;
@@ -71,6 +71,6 @@ int main() {
             SDL_Delay(frameDelay-frametime);
         }
     }
-*/
+
     return 0;
 }

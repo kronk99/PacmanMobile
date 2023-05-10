@@ -249,6 +249,30 @@ Node.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Node.cpp.s
 .PHONY : Node.cpp.s
 
+Pila.o: Pila.cpp.o
+.PHONY : Pila.o
+
+# target to build an object file
+Pila.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Pila.cpp.o
+.PHONY : Pila.cpp.o
+
+Pila.i: Pila.cpp.i
+.PHONY : Pila.i
+
+# target to preprocess a source file
+Pila.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Pila.cpp.i
+.PHONY : Pila.cpp.i
+
+Pila.s: Pila.cpp.s
+.PHONY : Pila.s
+
+# target to generate assembly for a file
+Pila.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Pila.cpp.s
+.PHONY : Pila.cpp.s
+
 Player.o: Player.cpp.o
 .PHONY : Player.o
 
@@ -272,6 +296,30 @@ Player.s: Player.cpp.s
 Player.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Player.cpp.s
 .PHONY : Player.cpp.s
+
+Pnode.o: Pnode.cpp.o
+.PHONY : Pnode.o
+
+# target to build an object file
+Pnode.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Pnode.cpp.o
+.PHONY : Pnode.cpp.o
+
+Pnode.i: Pnode.cpp.i
+.PHONY : Pnode.i
+
+# target to preprocess a source file
+Pnode.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Pnode.cpp.i
+.PHONY : Pnode.cpp.i
+
+Pnode.s: Pnode.cpp.s
+.PHONY : Pnode.s
+
+# target to generate assembly for a file
+Pnode.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Pnode.cpp.s
+.PHONY : Pnode.cpp.s
 
 Score.o: Score.cpp.o
 .PHONY : Score.o
@@ -441,9 +489,15 @@ help:
 	@echo "... Node.o"
 	@echo "... Node.i"
 	@echo "... Node.s"
+	@echo "... Pila.o"
+	@echo "... Pila.i"
+	@echo "... Pila.s"
 	@echo "... Player.o"
 	@echo "... Player.i"
 	@echo "... Player.s"
+	@echo "... Pnode.o"
+	@echo "... Pnode.i"
+	@echo "... Pnode.s"
 	@echo "... Score.o"
 	@echo "... Score.i"
 	@echo "... Score.s"

@@ -44,3 +44,18 @@ int enemyHndlr::getCurrentEnemies() {
 Enemy* enemyHndlr::getEnemy(int number){
     return fantasmas[number];
 }
+
+void enemyHndlr::spetialEmoves(bool flag) {
+    for(int i=0;i<currentEnemies;i++){
+        fantasmas[i]->setFLag(flag);
+    }
+}
+//in these the x, y are the positions in the map where the power up spawned.
+bool enemyHndlr::checkPowercollision(int x, int y) {
+    for(int i=0;i<currentEnemies;i++){
+        if(fantasmas[i]->getX()==y &&fantasmas[i]->getY()==x){
+            return true;
+        }
+    }
+    return false;
+}

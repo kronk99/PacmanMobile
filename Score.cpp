@@ -5,10 +5,12 @@
 #include "Score.h"
 //creo que tengo que hacer el score singleton
 bool Score::is200() {
-    if(currentScore % 200 !=0){
-        return false;
-    }else{
+    if(countScore==200){
+        cout<<"es 200!!"<<endl;
+        countScore=0;
         return true;
+    }else{
+        return false;
     }
 
 }
@@ -41,5 +43,31 @@ void Score::renderSCore() {
 
 void Score::scoreOne(int number) {
     currentScore+=number;
+    countScore+=number;
 
+}
+
+void Score::spawnPower() {
+    bool spawngood = false;
+    while(spawngood ==false){
+        random_device rd, dd;
+        std::uniform_int_distribution<int> randomx(0, 21);
+        std::uniform_int_distribution<int> randomy(0, 21);
+        int randomNum = randomx(rd);
+        int randomNum2 = randomy(dd);
+        if(Map::getInstance()->getMapa(randomNum,randomNum2)!=2){
+            spawngood =true;
+            powerX = randomNum;
+            powerY=randomNum2;
+            Map::getInstance()->setpowerpos(randomNum,randomNum2);
+        }
+    }
+}
+
+int Score::getpowerX() {
+    return powerX;
+}
+
+int Score::getpowerY() {
+    return powerY;
 }
