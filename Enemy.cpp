@@ -118,7 +118,7 @@ void Enemy::move() { //mueve al jugador , debo de poner siempreel direction a la
                 county=0;
                 cout<<"LA FILA ENEMIGO ES"<< posy/32<<endl;
                 cout<<"COLUMNA ENEMIGO"<< posx/32<<endl;
-                Map::getInstance()->makepath(posy/32,posx/32);//CREO QUE ESTO
+                Map::getInstance()->makepath(posy/32,posx/32);//CREO QUE ESTO aa
                 //DAÑA EL CODIGO , me tira origen invalido
                 pila=pathfindingA::getInstance()->getpila();
                 number = pila->getSize();
