@@ -96,7 +96,7 @@ int Enemy::getDirection(){
 void Enemy::move() { //mueve al jugador , debo de poner siempreel direction a la izquierda
 //HAGA ESTE MOVIMIENTO CUANDO LA PILA ESTA VACIA.
 //SI la pila no esta vacia , haga el otro movimiento.
-//en ese otro movimiento, si la flag == false, ponga el x ,y al nodo màs cercano y
+//en ese otro movimiento, si la flag == false, ponga el x ,y al nodo màs cercano y a
 //elimine la pila.
     //si no esta encima de una casilla , sigase moviendo.
     if(number==0){
