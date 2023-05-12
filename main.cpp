@@ -4,7 +4,7 @@
 #include "Pila.h"
 #include "pathfindingA.h"
 int main() {
-    /*
+/*
     int x1 = 1;
     int x2=2;
     int x3=3;
@@ -14,7 +14,7 @@ int main() {
     Lista *closeLIst = new Lista();
     openlist->insertCloseList(closeLIst);
     openlist->insertFirst(x1,x2,F1);
-    openlist->insertLast(x2,x1,F2);
+    //openlist->insertLast(x2,x1,F2);
     openlist->printList();
     cout<<"el f mayor es:"<< openlist->minorF()<<endl;
     cout<<"el f2 mayor es:"<< openlist->minorF()<<endl;
@@ -22,7 +22,6 @@ int main() {
     closeLIst->printList();
     closeLIst->trueDelete();
     closeLIst->printList();*/
-    /*
     int lvl1[22][22]={
             //significado de los numeros:
             // 0 implica que no hay comida ni objetos(pacman paso por ahi)
@@ -51,13 +50,28 @@ int main() {
             {2,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2},
             {2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2},
     };
-    pathfindingA::getInstance()->aStarSearch(lvl1,2,1,12,9);
+    pathfindingA::getInstance()->aStarSearch(lvl1,6,16,18,5);
     Pila *pila = pathfindingA::getInstance()->getpila();
-    for(int i=0;i<pila->getSize();i++){
+    int endingpila = pila->getSize();
+    for(int i=0;i<endingpila;i++){// no esta insertando mal en la pila
+        //pero me sigue dando error de que no encuentra la ruta luego de la segunda
+        //iteracion , por que?
+
         cout<<"el x es"<<pila->getX()<<endl;
         pila->pop();
-    }*/
+    }
 
+    cout<<"se procede con la 2 iteracion"<<endl;
+    pathfindingA::getInstance()->aStarSearch(lvl1,20,1,5,4);
+    pila = pathfindingA::getInstance()->getpila();
+    for(int i=0;i<endingpila;i++){// no esta insertando mal en la pila
+        //pero me sigue dando error de que no encuentra la ruta luego de la segunda
+        //iteracion , por que?
+
+        cout<<"el x es"<<pila->getX()<<endl;
+        pila->pop();
+    }
+/*
     const int fps=60;
     const int frameDelay = 1000/fps;
     Uint32 frameStart;
@@ -77,6 +91,6 @@ int main() {
             SDL_Delay(frameDelay-frametime);
         }
     }
-
+*/
     return 0;
 }

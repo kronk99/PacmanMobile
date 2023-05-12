@@ -92,7 +92,6 @@ void Lista::trueDelete() {
         current=head;
         size--;
     }
-
 }
 
 Node *Lista::minorF() { //metodo para la open list

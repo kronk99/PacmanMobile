@@ -58,7 +58,7 @@ void Score::spawnPower() {
         std::uniform_int_distribution<int> randomy(0, 21);
         int randomNum = randomx(rd);
         int randomNum2 = randomy(dd);
-        if(Map::getInstance()->getMapa(randomNum,randomNum2)!=2){
+        if(Map::getInstance()->getMapa(randomNum,randomNum2)!=2 &&Map::getInstance()->getMapa(randomNum,randomNum2)!=3){
             spawngood =true;
             powerX = randomNum;
             powerY=randomNum2;

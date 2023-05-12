@@ -64,12 +64,15 @@ void pathfindingA::tracePath(cell cellDetails[22][22], int destx ,int desty ,int
     int col = desty;
     newPila = new Pila();
     newPila->push(row ,col);
+
 //me hace falta una pila para este codigo.
    // stack<Pair> Path;
     //!(cellDetails[row][col].parent_i == destx && cellDetails[row][col].parent_j == desty
     //ANTES DE ESTE CICLO AÑADIRLE A LA PILA EL DESTX Y EL DESTY.
     while (cellDetails[row][col].parent_i != origenx or cellDetails[row][col].parent_j != origeny) {
-//cambiar el && por un or
+        //este ciclo esta rarisimo, cuando le pido el padre fuera del ciclo si me
+        //lo da bien , si se lo pido dentro del ciclo me lo da mal
+        //antes de este codigo no me cambia el row y col
         int temp_row = cellDetails[row][col].parent_i;
         int temp_col = cellDetails[row][col].parent_j;
         cout<<"la ruta x DEL PATHFINDING es:"<<temp_row<<endl;
@@ -77,9 +80,14 @@ void pathfindingA::tracePath(cell cellDetails[22][22], int destx ,int desty ,int
         newPila->push(temp_row ,temp_col);
         row = temp_row;
         col = temp_col;
+        //-1 implica que es una celda NO evaluada;
         //basicamente tengo que añadir en la pila los temp_rows NO LOS ROW COL,añadiendo inicialmente
         //la destx y la desty .
     }
+    closeList->trueDelete(); //LINEA DE CODIGO MUY IMPORTANTE NO DEBE DE FALTAR.
+    openList->trueDelete(); //LINEA IMPORTANTE NO DEBE FALTAR.
+    //ESTO ES PARA CASO EXCEPCIONAL DONDE LA OPEN LIST QUEDE CON MÀS ITERACIONES
+    //POR QUE ENCUENTRA EL CAMINO.
 /*
     Path.push(make_pair(row, col));
     while (!Path.empty()) {
@@ -94,12 +102,15 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
     // If the source is out of range
     if (isValid(posx, posy) == false) {
         cout << "origen invalido" << endl;
+        //ARREGLAR ESTO ESTO DEBERIA DE PONER FLAG EN FALSO PARA EVITAR SEG FAULT.
+        //ARREGLAR TANTO ACA COMO EN ENEMY, COMO EN GAME .
         return;
     }
 
     // If the destination is out of range
     if (isValid(destx, desty) == false) {
         cout << "destino invalido" << endl;
+        //ARREGLAR ESTO, ESTO DEBERIA DE PONER LA FLAG EN FALSO.
         return;
     }
 //CREO QUE EL CODIGO DE ABAJO ES INNECESARIO, YA QUE
@@ -116,6 +127,8 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
     // If the destination cell is the same as source cell
     if (isDestination(posx, posy, destx, desty) == true) {
         cout<<"se esta directamente en la posicion x y del objetivo"<<endl;
+        //SI ESTOY DIRECTAMENTE ENCIMA DE LA RUTA ME DA SEG FAULT
+        //ARREGLAR ESTO , HACER UNA PILA QUE EVALUE ESTE CASO.
         return;
     }
     cell cellDetails[22][22];
@@ -131,21 +144,31 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
         }
     }
     // Initialising the parameters of the starting node
+    cout<<"el x original es"<<posx<<endl;
+    cout<<"el y original es"<<posy<<endl;
     i = posx, j = posy;
+    cout<<"el i original es"<<i<<endl;
+    cout<<"el j original es"<<j<<endl;
     cellDetails[i][j].f = 0;
     cellDetails[i][j].g = 0;
     cellDetails[i][j].h = 0;
-    cellDetails[i][j].parent_i = i;
-    cellDetails[i][j].parent_j = j;
+    cellDetails[i][j].parent_i = i; //ESTO ESTA BIEN?
+    cellDetails[i][j].parent_j = j;// ESTO ESTA BIEN?
+    cout<<"el i 2original es"<<i<<endl;
+    cout<<"el j 2original es"<<j<<endl;
     openList->insertFirst(posx,posy,0);
+    //AL INSERTAR EN LA OPEN LIST EL Y SE ME DAÑA.
     bool foundDest = false;
     Node *current;
     int gNew, hNew, fNew;
 
-    while(openList->getSIze()!=0){
+    while(openList->getSIze()!=0){ //EL ERROR DEBE ESTAR EN LA LISTA, ESTOY SEGURO.
+        cout<<"el tamaño es"<<openList->getSIze()<<endl;
         current = openList->minorF();
         i = current->getx();
         j = current->gety();
+        cout<<"------------"<<endl;
+        cout<<"el actual escogido es"<<i<<" "<<j<<endl;
         //cout<<"mi x ahora es"<<i<<endl;
         //cout<<"mi y ahora es:"<<j<<endl;
         //now we will genenerate the succesors.
@@ -190,7 +213,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                     cellDetails[i - 1][j].h = hNew;
                     cellDetails[i - 1][j].parent_i = i;
                     cellDetails[i - 1][j].parent_j = j;
-                    //cout<<"el sucesor escogido es el norte"<<endl;
+                    cout<<"el sucesor escogido es "<< i-1<<" "<<j<<endl;
                 }
             }
         }
@@ -234,6 +257,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                     cellDetails[i + 1][j].parent_i = i;
                     cellDetails[i + 1][j].parent_j = j;
                     //cout<<"el sucesor escogido es el sur"<<endl;
+                    cout<<"el sucesor escogido es "<< i+1<<" "<<j<<endl;
                 }
             }
         }
@@ -277,6 +301,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                     cellDetails[i ][j+1].parent_i = i;
                     cellDetails[i ][j+1].parent_j = j;
                     //cout<<"el sucesor escogido es el este"<<endl;
+                    cout<<"el sucesor escogido es "<< i<<" "<<j+1<<endl;
                 }
             }
         }
@@ -320,6 +345,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                     cellDetails[i ][j-1].parent_i = i;
                     cellDetails[i ][j-1].parent_j = j;
                     //cout<<"el sucesor escogido es el Oeste"<<endl;
+                    cout<<"el sucesor escogido es "<< i<<" "<<j-1<<endl;
                 }
             }
         }
@@ -363,6 +389,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                     cellDetails[i-1][j+1].parent_i = i;
                     cellDetails[i-1][j+1].parent_j = j;
                   //  cout<<"el sucesor escogido es el NOreste"<<endl;
+                    cout<<"el sucesor escogido es "<< i-1<<" "<<j+1<<endl;
                 }
             }
         }
@@ -407,6 +434,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                     cellDetails[i-1][j-1].parent_i = i;
                     cellDetails[i-1][j-1].parent_j = j;
                     //cout<<"el sucesor escogido es el NOrOeste"<<endl;
+                    cout<<"el sucesor escogido es "<< i-1<<" "<<j-1<<endl;
                 }
             }
         }
@@ -429,7 +457,6 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                 //si no esta en la close list y la celda no es un obstaculo calcule
                 //los valores de g h f
             else if (closeList->isincloseL(i+1 ,j+1)==false && validCell(i+1,j+1)==true){
-                cout<<"entre aca con un valid cell de"<<i-1<<"y"<<j-1<<"para un valid cell de "<<validCell(i-1,j-1)<<endl;
                 gNew = cellDetails[i][j].g + 14;
                 hNew = calculateHValue(i+1 , j+1, destx,desty);
                 fNew = gNew+hNew;
@@ -449,10 +476,10 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                     cellDetails[i+1][j+1].g = gNew;
                     cellDetails[i+1][j+1].h = hNew;
                     cellDetails[i+1][j+1].parent_i = i;
-                    cout<<"mi J es"<<j<<endl;
                     cellDetails[i+1][j+1].parent_j = j;
                     //cout<<"el sucesor escogido es el sureste"<<endl;
                     //cout<<"EL VALOR DE J EN LA MATRIZ AHORA ES"<<cellDetails[i+1][j+1].parent_j<<endl;
+                    cout<<"el sucesor escogido es "<< i+1<<" "<<j+1<<endl;
                 }
             }
         }
@@ -496,6 +523,7 @@ void pathfindingA::aStarSearch(int grid[22][22], int posx, int posy, int destx, 
                     cellDetails[i+1][j-1].parent_i = i;
                     cellDetails[i+1][j-1].parent_j = j;
                    // cout<<"el sucesor escogido es el suroeste"<<endl;
+                    cout<<"el sucesor escogido es "<< i+1<<" "<<j-1<<endl;
                 }
             }
         }
