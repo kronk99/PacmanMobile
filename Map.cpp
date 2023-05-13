@@ -144,3 +144,7 @@ void Map::setpowerpos(int x, int y) {
     powery=y;
 }
 
+Pila *Map::returnpila() {
+    return pathfindingA::getInstance()->getpila();
+}
+

@@ -8,6 +8,7 @@
 #include "textureLoader.h"
 #include <iostream>
 #include "pathfindingA.h"
+#include "Pila.h"
 
 class Map {
 private:
@@ -41,6 +42,7 @@ public:
     bool enemyColision(int x, int y);
     void makepath(int posx, int posy);
     void setpowerpos(int x, int y);
+    Pila* returnpila();
 
 };
 

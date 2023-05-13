@@ -23,11 +23,20 @@ Score::Score(SDL_Renderer *renders) {
     this->currentScore =0;
     countScore=0;
     Color = {255,255,255,255};
-    Color2 = {0,0,0,0};
     destino.x = 128;
     destino.y= 0;
     destino.h = 32;
     destino.w = 32;
+    //now for the power settings**************************************
+    powerTexture = textureLoader::getTextureloader()->Loadtexture("../Textures/power.png",renders);
+    //not getting right the texture. , mistake here.
+    pDestino.h=32;
+    pDestino.w=32;
+    pDestino.x=32;
+    pDestino.y=32;
+    cout<<"la textura es"<<powerTexture<<endl;
+    //pDestino.x=32;
+    //pDestino.y=0;
 //el H y el w se deben de multiplicar por la cantidad de digitos
 //que haya en el juego
 }
@@ -48,7 +57,7 @@ void Score::scoreOne(int number) {
 
 }
 
-void Score::spawnPower() {
+void Score::spawnPower() { //this code needs to change.
     //optimizar es poniendo en un array a la hora de crear el gamemap
     //las casillas que no sean obstaculos y aca, con un random de el poder.
     bool spawngood = false;
@@ -67,6 +76,8 @@ void Score::spawnPower() {
     }
     cout<<"EL X DEL SCORE es "<<powerX<<endl;
     cout<<"EL Y DEL SCORE es"<<powerY<<endl;
+    pDestino.x=powerY*32;
+    pDestino.y=powerX*32;
 }
 
 int Score::getpowerX() {
@@ -75,4 +86,17 @@ int Score::getpowerX() {
 
 int Score::getpowerY() {
     return powerY;
+}
+
+void Score::renderAll() {
+   renderSCore();
+    if(ispowerAvailable==true){ //por que el render del poder lleva nullptr no tengo idea
+        //verificar esto mas tarde, por alguna razon el screct es nulo aca.POSIBLE BUG.
+        SDL_RenderCopy(render,powerTexture, nullptr,&pDestino);
+        cout<<"existe poder"<<endl;
+    }
+}
+
+void Score::setPowerstate(bool state) {
+    this->ispowerAvailable = state;
 }

@@ -82,7 +82,7 @@ void Game::render() {
     player->renderAll();
     enemigos->renderallEnemies();
     //enemigo->renderEnemy();
-    score->renderSCore();
+    score->renderAll();
     //Mapa->renderOne();
     vida->renderAll();
     SDL_RenderPresent(renderer);
@@ -221,6 +221,7 @@ void Game::checkScore() {
     if(score->is200()==true &&LOCK==false){
         enemigos->spetialEmoves(true);
         score->spawnPower();
+        score->setPowerstate(true);
         LOCK = true;
         cout<<"POWER UP"<<endl;
     }
@@ -232,11 +233,13 @@ void Game::checkPcolision() {
         enemigos->spetialEmoves(false);
         LOCK=false;
         cout<<"colision con el poder"<<endl;
+        score->setPowerstate(false);
     }
     if(enemigos->checkPowercollision(score->getpowerX(),score->getpowerY())==true){
         enemigos->spetialEmoves(false);
         LOCK = false;
         cout<<"colision con el poder"<<endl;
+        score->setPowerstate(false);
     }
 }
 

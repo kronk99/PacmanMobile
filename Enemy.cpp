@@ -120,7 +120,7 @@ void Enemy::move() { //mueve al jugador , debo de poner siempreel direction a la
                 cout<<"COLUMNA ENEMIGO"<< posx/32<<endl;
                 Map::getInstance()->makepath(posy/32,posx/32);//CREO QUE ESTO aa
                 //DAÑA EL CODIGO , me tira origen invalido
-                pila=pathfindingA::getInstance()->getpila();
+                pila=Map::getInstance()->returnpila();
                 number = pila->getSize();
                 cout<<"EL NUMERO CONDICIONAL ES"<<number<<endl;
                 cout<<"el primer x es:"<<pila->getX()<<endl;

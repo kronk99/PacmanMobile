@@ -18,12 +18,14 @@ private :
     int countScore;
     SDL_Renderer *render;
     SDL_Color Color;
-    SDL_Color Color2;
     TTF_Font *font;
     SDL_Texture *texture;
+    SDL_Texture *powerTexture;
     SDL_Rect destino;
+    SDL_Rect pDestino;
     int powerX;
     int powerY;
+    bool ispowerAvailable;
 
 public :
     Score(SDL_Renderer *render);
@@ -33,6 +35,8 @@ public :
     void spawnPower();
     int getpowerX();
     int getpowerY();
+    void renderAll();
+    void setPowerstate(bool state);
 };
 
 
