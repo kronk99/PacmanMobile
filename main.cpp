@@ -22,6 +22,7 @@ int main() {
     closeLIst->printList();
     closeLIst->trueDelete();
     closeLIst->printList();*/
+/*
     int lvl1[22][22]={
             //significado de los numeros:
             // 0 implica que no hay comida ni objetos(pacman paso por ahi)
@@ -70,8 +71,7 @@ int main() {
 
         cout<<"el x es"<<pila->getX()<<endl;
         pila->pop();
-    }
-/*
+    }*/
     const int fps=60;
     const int frameDelay = 1000/fps;
     Uint32 frameStart;
@@ -91,6 +91,5 @@ int main() {
             SDL_Delay(frameDelay-frametime);
         }
     }
-*/
     return 0;
 }

@@ -125,8 +125,8 @@ void Enemy::move() { //mueve al jugador , debo de poner siempreel direction a la
                 cout<<"EL NUMERO CONDICIONAL ES"<<number<<endl;
                 cout<<"el primer x es:"<<pila->getX()<<endl;
                 cout<<"el primer y es:"<<pila->getY()<<endl;
-                posx = pila->getY()*32;
-                posy = pila->getX()*32;
+               // posx = pila->getY()*32;
+                //posy = pila->getX()*32;
             }
         }
         else{ //si esta encima de una casilla..
@@ -135,6 +135,37 @@ void Enemy::move() { //mueve al jugador , debo de poner siempreel direction a la
         }
     }
     else{
+        if(checkCounterx() == true || checkCountery() == true){
+            //cout<<"no estoy moviendome"<<endl;
+            if(flag==true){
+                countx =0;
+                county=0;
+                pila->pop();
+                cout<<"se hace pop a la pila"<<endl;
+            }
+            else{
+                deletePila();
+                //creo que si llega el mismo al poder no elimina la pila, caso donde
+                //este fantasma haya llegado , por lo que hay que hacer a mano un metodo
+                //delete pila.
+                number=0;
+                countx =0;
+                county=0;
+                checkSurround();
+                random_device rd;
+                std::uniform_int_distribution<int> randomx(0, paths-1);
+                int randomNum = randomx(rd);
+                direction = route[randomNum];
+                cout<<"SE VA A CAMBIAR AL MOV NORMAL"<<endl;
+            }
+        }
+        else{ //si esta encima de una casilla..
+            specialMove(pila->getY()*32 ,pila->getX()*32);
+            //cout<<"movimiento especial"<<endl;
+            //cout<<"el countx es"<<countx<<endl;
+           // cout<<"el county es"<<county<<endl;
+        }
+        /*
         if(flag ==true){ //LA FLAG NO SE ESTA HACIENDO FALSE CUANDO HACE all
             //RECORRIDO.
             specialMove(pila->getY()*32 ,pila->getX()*32);
@@ -156,7 +187,7 @@ void Enemy::move() { //mueve al jugador , debo de poner siempreel direction a la
             int randomNum = randomx(rd);
             direction = route[randomNum];
             cout<<"SE VA A CAMBIAR AL MOV NORMAL"<<endl;
-        }
+        }*/
     }
 }
 void Enemy::checkSurround(){ //checkea casillas al rededor;
@@ -264,8 +295,24 @@ void Enemy::setFLag(bool flags) {
 }
 
 void Enemy::specialMove(int x, int y) {
-    posx=x;
-    posy = y;
+    if(posx < x){
+        posx++;
+        countx++;
+    }
+    if(posx >x){
+        posx--;
+        countx++;
+    }
+    if(posy<y){
+        posy++;
+        county++;
+    }
+    if(posy>y){
+        posy--;
+        county++;
+    }
+    cout<<"el countx es"<<countx<<endl;
+    cout<<"el county es"<<county<<endl;
 }
 
 void Enemy::deletePila() {
@@ -275,6 +322,10 @@ void Enemy::deletePila() {
     }
     delete pila;
     pila =nullptr;
+}
+
+void Enemy::specialMove2() {
+
 }
 
 

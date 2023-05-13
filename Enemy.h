@@ -57,6 +57,7 @@ public:
     void setFLag(bool flag);
     void deletePila();
     void specialMove(int x, int y);
+    void specialMove2();
 };
 
 
