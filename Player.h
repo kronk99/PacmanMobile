@@ -17,6 +17,7 @@ private:
     SDL_Renderer* render;
     int posCounter;
     int posyCounter;
+    Uint32 powerTimer ;
 
 
 public:
@@ -40,6 +41,9 @@ public:
     void sumposyCounter();
     bool checkyCounter();
     void setALlposfalse();
+    void startimerCount();
+    bool checktimerCount();
+
 };
 
 

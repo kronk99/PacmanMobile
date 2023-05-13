@@ -4,8 +4,9 @@
 
 #include "Score.h"
 //creo que tengo que hacer el score singleton
-bool Score::is200() {
-    if(countScore==200){
+bool Score::is200() { //cambiar esto a modulo servira?
+    if(countScore>=200){ //hacerlo mayor igual a 200 , para evaluar casos
+        //donde el jugador consume a enemigos.
         cout<<"es 200!!"<<endl;
         countScore=0;
         return true;

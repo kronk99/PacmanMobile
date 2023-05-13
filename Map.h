@@ -21,6 +21,9 @@ private:
     static Map* pointer;
     int powerx;
     int powery;
+    int availableCells; //numero de celdas que no son obstaculos
+    //con esto puedo definir el tamaño de un array, que va a ser los obstaculos
+    //que no son
 public:
     Map();
 //falta un deconstructor

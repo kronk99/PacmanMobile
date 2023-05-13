@@ -209,16 +209,29 @@ void Game::playerMappos() {
 //colisiones para todos los enemigos.
 
 void Game::PnEcollision(){
+    bool ispowered = player->checktimerCount();
     int currentEnemies = enemigos->getCurrentEnemies();
     for(int i=0;i<currentEnemies;i++){
         if(SDL_HasIntersection(player->getRect() , enemigos->getEnemy(i)->getRect())){
-            cout<<"EL FANTASMA SE COME AL JUGADOR"<<endl;
+            if(ispowered==true){
+                //aca manda al enemigo a esperar 5 segundos para respawnear.
+                //hay que modificar el metodo move de enemyHndlr.
+                cout<<"EL JUGADOR LE GANA AL ENEMIGO"<<endl;
+                //sumele al score 50 pts.
+                score->scoreOne(50); //esta sirviendo , solo que
+                //hay que meterle la logica de que ese enemigo se vaya al 0,0
+                //y no spawnee hasta que haya pasado el tiempo de espera.
+            }
+            else{
+                cout<<"el enemigo se come al jugador"<<endl;
+            }
         }
     }
 }
 
 void Game::checkScore() {
     if(score->is200()==true &&LOCK==false){
+        //aca tengo que meter la verificacion del jugador.
         enemigos->spetialEmoves(true);
         score->spawnPower();
         score->setPowerstate(true);
@@ -227,13 +240,15 @@ void Game::checkScore() {
     }
 }
 
-void Game::checkPcolision() {
+void Game::checkPcolision() {//POWER COLLISION DETECTION METHOD.
     //hacer un if con respecto al lock para mayor rendimiento .
-    if(player->getX()==score->getpowerY() && player->getY()==score->getpowerX()){
+    if(player->getX()==score->getpowerY()*32 && player->getY()==score->getpowerX()*32){
         enemigos->spetialEmoves(false);
         LOCK=false;
         cout<<"colision con el poder"<<endl;
         score->setPowerstate(false);
+        player->startimerCount(); //empieza el contador del jugador empoderado
+        //creo que al verificar colisiones
     }
     if(enemigos->checkPowercollision(score->getpowerX(),score->getpowerY())==true){
         enemigos->spetialEmoves(false);

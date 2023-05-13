@@ -13,6 +13,7 @@ Player::Player(const char* texture , SDL_Renderer* renders) {
     posy=64;
     posCounter=0;
     posyCounter=0;
+    powerTimer =0;
 //EL JUGADOR DEBE DE MOVERSE EN MULTIPLOS DE 32 PIXELES
 }
 void Player::Update() {
@@ -99,3 +100,22 @@ void Player::setALlposfalse() {
     posCounter=0;
     posyCounter=0;
 }
+
+void Player::startimerCount() {
+    powerTimer = SDL_GetTicks()+4000;
+}
+
+bool Player::checktimerCount() {
+    if(!SDL_TICKS_PASSED(SDL_GetTicks(),powerTimer)){//si aun no ha pasado el tiempo
+        return true ;//retorne true para decir "hey sigo con el bufo del poder";
+        //no va a poder spawnear otro poder si el jugador ya esta con un poder activado;
+        //si es un valor inicial de 0 siempre lo va a decir como 0, entonces
+        //puede usarse en el ciclo loop.
+        cout<<"SIGO EMPODERADO"<<endl;
+    }
+    else{
+        return false;
+    }
+}
+
+
