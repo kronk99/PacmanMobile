@@ -40,13 +40,10 @@ public:
     void playerMappos();
     static SDL_Event evento;
     bool verifyCollision(int a, int b);
-    bool enemyColision(int x, int y);
-
-    void movenCheckEnemy();
-
     void PnEcollision();
     void checkScore();
     void checkPcolision();
+    void tolvlUp();
 };
 
 

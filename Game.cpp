@@ -51,14 +51,16 @@ void Game::update() {
     //que se meta al if, y le haga player->updatePos
     //ACTUALIZA LA POSICION Y MOVIMIENTO DE IMAGENES.
     //cout<<"metodo update"<<endl;
+    //tolvlUp();
     checkScore();
     player->Update();
     enemigos->moveallEnemies(); //ACA ESTA EL ERROR.
     enemigos->updateallEnemies();
-    checkPcolision();
+    checkPcolision(); //powercollision
     //enemigo->move();
     //enemigo->Update();
-    PnEcollision();
+    PnEcollision(); //playerNenemyCollision.
+    tolvlUp();
     //playerMappos();
     //verifyCollision();
     //verifyCollision();
@@ -200,6 +202,7 @@ void Game::playerMappos() {
       if(Map::getInstance()->getMapa(player->getY()/32,player->getX()/32)==1){
           score->scoreOne(10);
           Map::getInstance()->changeMap(player->getY()/32,player->getX()/32,0);
+          Map::getInstance()->minusptolvlUp();
       }
 
       player->setALlposfalse();
@@ -208,22 +211,38 @@ void Game::playerMappos() {
 //voy a documentar las colisiones por ahora, arreglarlo despues implementando
 //colisiones para todos los enemigos.
 
+//ACA TAMBIEN HAY QUE CHECKEAR SI EL FANTASMA NO HA REAPARECIDO
+//NO CHECKEE COLISIONES
+//EXISTE CIERTO BUG A LA HORA DE CONSUMIR ENEMIGOS
+//REVISAR LA LOGICA.
 void Game::PnEcollision(){
     bool ispowered = player->checktimerCount();
     int currentEnemies = enemigos->getCurrentEnemies();
     for(int i=0;i<currentEnemies;i++){
-        if(SDL_HasIntersection(player->getRect() , enemigos->getEnemy(i)->getRect())){
-            if(ispowered==true){
-                //aca manda al enemigo a esperar 5 segundos para respawnear.
-                //hay que modificar el metodo move de enemyHndlr.
-                cout<<"EL JUGADOR LE GANA AL ENEMIGO"<<endl;
-                //sumele al score 50 pts.
-                score->scoreOne(50); //esta sirviendo , solo que
-                //hay que meterle la logica de que ese enemigo se vaya al 0,0
-                //y no spawnee hasta que haya pasado el tiempo de espera.
-            }
-            else{
-                cout<<"el enemigo se come al jugador"<<endl;
+        if(enemigos->getEnemy(i)->checktimerCount()==false){ //si el enemigo no esta
+            //en respawn., si lo esta no convalide colisiones.
+            if(SDL_HasIntersection(player->getRect() , enemigos->getEnemy(i)->getRect())){
+                if(ispowered==true){
+                    if(enemigos->getEnemy(i)->checktimerCount()==false){
+                        //TENER CUIDADO CON LOS TIEMPOS EN ESTO PUEDE QUE AL MOVERSE
+                        //NO HAYA PASADO EL TIEMPO PERO ACA SI ENTONCES SE JODE all
+
+                        cout<<"EL JUGADOR LE GANA AL ENEMIGO"<<endl;
+                        //sumele al score 50 pts.
+                        score->scoreOne(50); //esta sirviendo , solo que
+                        //hay que meterle la logica de que ese enemigo se vaya al 0,0
+                        //y no spawnee hasta que haya pasado el tiempo de espera.
+                        enemigos->getEnemy(i)->startimerCount(5000);
+                        enemigos->getEnemy(i)->respawn();//
+                        //CON EL SPAWN VERIFICAR LOS CASOS EXCEPCIONALES ANOTADOS EN
+                        //EL CUADERNO ESTO DEBE SER MODIFICADO A POSTERIORI.
+                        //ahora a modificar el enemyhndlr
+                    }
+                }
+                else{
+                    cout<<"el enemigo se come al jugador"<<endl;
+                    //aca quito vidas.
+                }
             }
         }
     }
@@ -256,5 +275,19 @@ void Game::checkPcolision() {//POWER COLLISION DETECTION METHOD.
         cout<<"colision con el poder"<<endl;
         score->setPowerstate(false);
     }
+}
+
+void Game::tolvlUp() {
+    //cout<<"VOY A SUBIR DE NIVEL CON "<<Map::getInstance()->getPtolvlUp()<<endl;
+    if(Map::getInstance()->getPtolvlUp()==0){
+        Map::getInstance()->lvlUP();
+        int i= enemigos->getCurrentEnemies();
+        for(int a=0;a<i;a++){
+            enemigos->lvlup("../Textures/slimerojo.png");
+            enemigos->getEnemy(i)->respawn();
+            enemigos->getEnemy(i)->startimerCount(2000);
+        }
+    }
+
 }
 

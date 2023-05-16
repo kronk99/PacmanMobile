@@ -23,6 +23,8 @@ private:
     int powery;
     int availableCells; //numero de celdas que no son obstaculos
     //con esto puedo definir el tamaño de un array, que va a ser los obstaculos
+    int pointtolvlUp;
+    short currentLvl;
     //que no son
 public:
     Map();
@@ -42,10 +44,13 @@ public:
     int getMapa(int a, int b);
     static Map* getInstance();
 
-    bool enemyColision(int x, int y);
+
     void makepath(int posx, int posy);
     void setpowerpos(int x, int y);
     Pila* returnpila();
+    int getPtolvlUp();
+    void minusptolvlUp();
+    void lvlUP();
 
 };
 

@@ -19,6 +19,7 @@ Enemy::Enemy(const char* texture,SDL_Renderer *renders , int velocidad) {
     flag=false;
     pila= nullptr; //IMPORTANTE NO QUITAR.SI SE QUITA PRODUCE SEGM FAULT
     number=0;
+    respawnTimer=0; //DO NOT REMOVE
 }
 void Enemy::Update(){
     //aca habria que hacer un if, por si las imagenes de los 4 fantasmas distintos
@@ -324,8 +325,46 @@ void Enemy::deletePila() {
     pila =nullptr;
 }
 
-void Enemy::specialMove2() {
-
+void Enemy::startimerCount(int number) {
+    respawnTimer=SDL_GetTicks()+number; //the five thouwsands are the
+    //5 seconds in the future from the moment the timer is calculated.
 }
+
+bool Enemy::checktimerCount() {
+    if(!SDL_TICKS_PASSED(SDL_GetTicks(),respawnTimer)){//si aun no ha pasado el tiempo
+        return true ;//retorne true para decir "hey aun no he respawneadp
+        //no va a poder spawnear otro poder si el jugador ya esta con un poder activado;
+        //si es un valor inicial de 0 siempre lo va a decir como 0, entonces
+        //puede usarse en el ciclo loop.
+        cout<<"SIGO EMPODERADO"<<endl;
+    }
+    else{
+        return false;
+    }
+}
+
+void Enemy::respawn(){
+    bool spawngood = false;
+    int randomNum;
+    int randomNum2;
+    while (spawngood == false) {
+        random_device rd, dd;
+        std::uniform_int_distribution<int> randomx(0, 21);
+        std::uniform_int_distribution<int> randomy(0, 21);
+        randomNum = randomx(rd);
+        randomNum2 = randomy(dd);
+        if (Map::getInstance()->getMapa(randomNum, randomNum2) != 2 &&
+            Map::getInstance()->getMapa(randomNum, randomNum2) != 3) {
+            spawngood = true;
+
+        }
+    }
+    posx =randomNum2*32;
+    posy = randomNum*32;
+    county=32;
+    countx=32;
+}
+
+
 
 

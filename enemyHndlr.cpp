@@ -13,20 +13,27 @@ enemyHndlr::enemyHndlr(SDL_Renderer *renders) {
 
 void enemyHndlr::renderallEnemies() {
     for(int i=0;i<currentEnemies;i++){
-        fantasmas[i]->renderEnemy();
+        if (fantasmas[i]->checktimerCount() ==false){ //solo renderise si ya pasaron
+            //los 5 segundos de respawn
+            fantasmas[i]->renderEnemy();
+        }
     }
 }
 
 void enemyHndlr::moveallEnemies() {
     for(int i=0;i<currentEnemies;i++){
-        fantasmas[i]->move();
+        if (fantasmas[i]->checktimerCount() ==false){ //solo muevase si ya pasaron
+            //los 5 segundos de respawn
+            fantasmas[i]->move();
+        }
     }
-
 }
 
 void enemyHndlr::updateallEnemies() {
     for(int i=0;i<currentEnemies;i++){
-        fantasmas[i]->Update();
+        if(fantasmas[i]->checktimerCount()==false){
+            fantasmas[i]->Update(); //solo renderize si no ha respawneado
+        }
     }
 
 }
