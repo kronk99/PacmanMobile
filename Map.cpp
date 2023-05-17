@@ -259,6 +259,7 @@ void Map::lvlUP() {
             currentLvl++;
             break;
         case 4:
+            currentLvl++;
             cout<<"se termina el juego"<<endl;
     }
 

@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/PacmanMobile.dir/Backtracking.cpp.o"
+  "CMakeFiles/PacmanMobile.dir/Backtracking.cpp.o.d"
   "CMakeFiles/PacmanMobile.dir/Enemy.cpp.o"
   "CMakeFiles/PacmanMobile.dir/Enemy.cpp.o.d"
   "CMakeFiles/PacmanMobile.dir/Game.cpp.o"
@@ -17,6 +19,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/PacmanMobile.dir/Pnode.cpp.o.d"
   "CMakeFiles/PacmanMobile.dir/Score.cpp.o"
   "CMakeFiles/PacmanMobile.dir/Score.cpp.o.d"
+  "CMakeFiles/PacmanMobile.dir/Socket.cpp.o"
+  "CMakeFiles/PacmanMobile.dir/Socket.cpp.o.d"
   "CMakeFiles/PacmanMobile.dir/Vida.cpp.o"
   "CMakeFiles/PacmanMobile.dir/Vida.cpp.o.d"
   "CMakeFiles/PacmanMobile.dir/enemyHndlr.cpp.o"

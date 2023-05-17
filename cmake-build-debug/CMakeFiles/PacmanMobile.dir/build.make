@@ -44,10 +44,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/235/bin/cmake/linux/x64/bin/cmake
+CMAKE_COMMAND = /snap/clion/237/bin/cmake/linux/x64/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/235/bin/cmake/linux/x64/bin/cmake -E rm -f
+RM = /snap/clion/237/bin/cmake/linux/x64/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -265,6 +265,34 @@ CMakeFiles/PacmanMobile.dir/Pila.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PacmanMobile.dir/Pila.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Pila.cpp -o CMakeFiles/PacmanMobile.dir/Pila.cpp.s
 
+CMakeFiles/PacmanMobile.dir/Backtracking.cpp.o: CMakeFiles/PacmanMobile.dir/flags.make
+CMakeFiles/PacmanMobile.dir/Backtracking.cpp.o: /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Backtracking.cpp
+CMakeFiles/PacmanMobile.dir/Backtracking.cpp.o: CMakeFiles/PacmanMobile.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/PacmanMobile.dir/Backtracking.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PacmanMobile.dir/Backtracking.cpp.o -MF CMakeFiles/PacmanMobile.dir/Backtracking.cpp.o.d -o CMakeFiles/PacmanMobile.dir/Backtracking.cpp.o -c /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Backtracking.cpp
+
+CMakeFiles/PacmanMobile.dir/Backtracking.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PacmanMobile.dir/Backtracking.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Backtracking.cpp > CMakeFiles/PacmanMobile.dir/Backtracking.cpp.i
+
+CMakeFiles/PacmanMobile.dir/Backtracking.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PacmanMobile.dir/Backtracking.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Backtracking.cpp -o CMakeFiles/PacmanMobile.dir/Backtracking.cpp.s
+
+CMakeFiles/PacmanMobile.dir/Socket.cpp.o: CMakeFiles/PacmanMobile.dir/flags.make
+CMakeFiles/PacmanMobile.dir/Socket.cpp.o: /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Socket.cpp
+CMakeFiles/PacmanMobile.dir/Socket.cpp.o: CMakeFiles/PacmanMobile.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/PacmanMobile.dir/Socket.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PacmanMobile.dir/Socket.cpp.o -MF CMakeFiles/PacmanMobile.dir/Socket.cpp.o.d -o CMakeFiles/PacmanMobile.dir/Socket.cpp.o -c /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Socket.cpp
+
+CMakeFiles/PacmanMobile.dir/Socket.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PacmanMobile.dir/Socket.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Socket.cpp > CMakeFiles/PacmanMobile.dir/Socket.cpp.i
+
+CMakeFiles/PacmanMobile.dir/Socket.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PacmanMobile.dir/Socket.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Socket.cpp -o CMakeFiles/PacmanMobile.dir/Socket.cpp.s
+
 # Object files for target PacmanMobile
 PacmanMobile_OBJECTS = \
 "CMakeFiles/PacmanMobile.dir/main.cpp.o" \
@@ -280,7 +308,9 @@ PacmanMobile_OBJECTS = \
 "CMakeFiles/PacmanMobile.dir/Lista.cpp.o" \
 "CMakeFiles/PacmanMobile.dir/Node.cpp.o" \
 "CMakeFiles/PacmanMobile.dir/Pnode.cpp.o" \
-"CMakeFiles/PacmanMobile.dir/Pila.cpp.o"
+"CMakeFiles/PacmanMobile.dir/Pila.cpp.o" \
+"CMakeFiles/PacmanMobile.dir/Backtracking.cpp.o" \
+"CMakeFiles/PacmanMobile.dir/Socket.cpp.o"
 
 # External object files for target PacmanMobile
 PacmanMobile_EXTERNAL_OBJECTS =
@@ -299,9 +329,11 @@ PacmanMobile: CMakeFiles/PacmanMobile.dir/Lista.cpp.o
 PacmanMobile: CMakeFiles/PacmanMobile.dir/Node.cpp.o
 PacmanMobile: CMakeFiles/PacmanMobile.dir/Pnode.cpp.o
 PacmanMobile: CMakeFiles/PacmanMobile.dir/Pila.cpp.o
+PacmanMobile: CMakeFiles/PacmanMobile.dir/Backtracking.cpp.o
+PacmanMobile: CMakeFiles/PacmanMobile.dir/Socket.cpp.o
 PacmanMobile: CMakeFiles/PacmanMobile.dir/build.make
 PacmanMobile: CMakeFiles/PacmanMobile.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable PacmanMobile"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable PacmanMobile"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PacmanMobile.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

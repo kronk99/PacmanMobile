@@ -117,3 +117,7 @@ void Score::setLevel() {
     lvlTexture =SDL_CreateTextureFromSurface(render,surface2);
     free(surface2);
 }
+
+int Score::getcurrentscore() {
+    return currentScore;
+}

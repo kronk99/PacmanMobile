@@ -44,6 +44,10 @@ void Game::init(const char *title, int posx, int posy, int width, int lenght, bo
     //enemigos->lvlup("../Textures/slimenaranja.png");
     vida = new Vida(renderer);
     LOCK=false;
+    //para la endscreen.
+    font = TTF_OpenFont("../assets/Pixeltype.ttf" ,30);
+    Color = {255,255,255,255};
+    socket = new Socket(player);
 }
 void Game::update() {
     //aca deberia de meterle un metodo que sea handle arduino, entonces
@@ -52,6 +56,7 @@ void Game::update() {
     //ACTUALIZA LA POSICION Y MOVIMIENTO DE IMAGENES.
     //cout<<"metodo update"<<endl;
     //tolvlUp();
+    socket->socketServer();
     checkScore();
     player->Update();
     enemigos->moveallEnemies(); //ACA ESTA EL ERROR.
@@ -86,6 +91,7 @@ void Game::render() {
     //enemigo->renderEnemy();
     score->renderAll();
     //Mapa->renderOne();
+    //
     vida->renderAll();
     SDL_RenderPresent(renderer);
 
@@ -288,5 +294,55 @@ void Game::tolvlUp() {
         score->setLevel();
     }
 
+}
+
+void Game::setRunning(bool running) {
+    this->isRunning=running;
+
+}
+
+void Game::endScreen() {
+    SDL_Surface *surface = TTF_RenderText_Solid(font ,to_string(score->getcurrentscore()).c_str(), Color);
+    SDL_Surface *surface2 = TTF_RenderText_Solid(font ,"el score es:", Color);
+    SDL_Surface *surface3;
+    if(Map::getInstance()->getlvl()==5){
+        surface3 = TTF_RenderText_Solid(font ,"has ganado", Color);
+    }
+    else{
+        surface3 = TTF_RenderText_Solid(font ,"has perdido", Color);
+    }
+    //SDL_Surface *surface3 = TTF_RenderText_Solid(font ,to_string(score->getcurrentscore()).c_str(), Color);
+    texture =SDL_CreateTextureFromSurface(renderer,surface);
+    Endgamemsg =SDL_CreateTextureFromSurface(renderer,surface3);
+    scorelbl = SDL_CreateTextureFromSurface(renderer,surface2);
+    free(surface);
+    free(surface2);
+    free(surface3);
+    rect1.x = 128;
+    rect1.y= 128;
+    rect1.h = 64;
+    rect1.w = 64;
+    rect2.x = 128;
+    rect2.y= 192;
+    rect2.h = 64;
+    rect2.w = 64;
+    rect3.x = 320;
+    rect3.y= 128;
+    rect3.h = 64;
+    rect3.w = 64;
+    vida->setvida();
+}
+
+void Game::renderendScreen() { //se necesitan hacer mejoras a esto, la endscreen
+    SDL_RenderClear(renderer);
+    SDL_RenderCopy(renderer,Endgamemsg,nullptr,&rect1);
+    SDL_RenderCopy(renderer,scorelbl,nullptr,&rect2);
+    SDL_RenderCopy(renderer,texture,nullptr,&rect3);
+    SDL_RenderPresent(renderer);
+
+}
+
+bool Game::getrunning() {
+    return isRunning;
 }
 

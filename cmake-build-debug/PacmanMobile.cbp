@@ -82,6 +82,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Backtracking.cpp">
+			<Option target="PacmanMobile"/>
+		</Unit>
+		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Backtracking.h">
+			<Option target="PacmanMobile"/>
+		</Unit>
 		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Enemy.cpp">
 			<Option target="PacmanMobile"/>
 		</Unit>
@@ -134,6 +140,12 @@
 			<Option target="PacmanMobile"/>
 		</Unit>
 		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Score.h">
+			<Option target="PacmanMobile"/>
+		</Unit>
+		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Socket.cpp">
+			<Option target="PacmanMobile"/>
+		</Unit>
+		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Socket.h">
 			<Option target="PacmanMobile"/>
 		</Unit>
 		<Unit filename="/home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile/Vida.cpp">

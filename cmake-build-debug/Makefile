@@ -48,10 +48,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/235/bin/cmake/linux/x64/bin/cmake
+CMAKE_COMMAND = /snap/clion/237/bin/cmake/linux/x64/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/235/bin/cmake/linux/x64/bin/cmake -E rm -f
+RM = /snap/clion/237/bin/cmake/linux/x64/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /home/huevitoentorta/Documentos/C++/PacmanMobile/PacmanMobile
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/235/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/237/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/235/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/237/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -128,6 +128,30 @@ PacmanMobile: cmake_check_build_system
 PacmanMobile/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/build
 .PHONY : PacmanMobile/fast
+
+Backtracking.o: Backtracking.cpp.o
+.PHONY : Backtracking.o
+
+# target to build an object file
+Backtracking.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Backtracking.cpp.o
+.PHONY : Backtracking.cpp.o
+
+Backtracking.i: Backtracking.cpp.i
+.PHONY : Backtracking.i
+
+# target to preprocess a source file
+Backtracking.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Backtracking.cpp.i
+.PHONY : Backtracking.cpp.i
+
+Backtracking.s: Backtracking.cpp.s
+.PHONY : Backtracking.s
+
+# target to generate assembly for a file
+Backtracking.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Backtracking.cpp.s
+.PHONY : Backtracking.cpp.s
 
 Enemy.o: Enemy.cpp.o
 .PHONY : Enemy.o
@@ -345,6 +369,30 @@ Score.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Score.cpp.s
 .PHONY : Score.cpp.s
 
+Socket.o: Socket.cpp.o
+.PHONY : Socket.o
+
+# target to build an object file
+Socket.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Socket.cpp.o
+.PHONY : Socket.cpp.o
+
+Socket.i: Socket.cpp.i
+.PHONY : Socket.i
+
+# target to preprocess a source file
+Socket.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Socket.cpp.i
+.PHONY : Socket.cpp.i
+
+Socket.s: Socket.cpp.s
+.PHONY : Socket.s
+
+# target to generate assembly for a file
+Socket.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PacmanMobile.dir/build.make CMakeFiles/PacmanMobile.dir/Socket.cpp.s
+.PHONY : Socket.cpp.s
+
 Vida.o: Vida.cpp.o
 .PHONY : Vida.o
 
@@ -474,6 +522,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... PacmanMobile"
+	@echo "... Backtracking.o"
+	@echo "... Backtracking.i"
+	@echo "... Backtracking.s"
 	@echo "... Enemy.o"
 	@echo "... Enemy.i"
 	@echo "... Enemy.s"
@@ -501,6 +552,9 @@ help:
 	@echo "... Score.o"
 	@echo "... Score.i"
 	@echo "... Score.s"
+	@echo "... Socket.o"
+	@echo "... Socket.i"
+	@echo "... Socket.s"
 	@echo "... Vida.o"
 	@echo "... Vida.i"
 	@echo "... Vida.s"

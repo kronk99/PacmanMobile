@@ -17,6 +17,7 @@ public:
     short getVida();
     void reduceVida();
     void renderAll();
+    void setvida(); //para la endgamescreen.
 };
 
 

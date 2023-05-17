@@ -38,3 +38,7 @@ void Vida::renderAll() {
     }
 }
 
+void Vida::setvida() {
+    vida++;
+}
+

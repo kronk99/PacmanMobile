@@ -2,7 +2,8 @@
 #include "Game.h"
 #include "Lista.h"
 #include "Pila.h"
-#include "pathfindingA.h"
+#include "Backtracking.h"
+//#include "pathfindingA.h"
 int main() {
 /*
     int x1 = 1;
@@ -50,7 +51,8 @@ int main() {
             {2,1,2,2,2,1,2,1,2,2,2,2,2,1,2,2,2,2,2,2,1,2},
             {2,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2},
             {2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2},
-    };
+    };*/
+    /*
     pathfindingA::getInstance()->aStarSearch(lvl1,6,16,18,5);
     Pila *pila = pathfindingA::getInstance()->getpila();
     int endingpila = pila->getSize();
@@ -71,7 +73,22 @@ int main() {
 
         cout<<"el x es"<<pila->getX()<<endl;
         pila->pop();
-    }*/
+    }*//*
+    Backtracking::getInstance()->insertMapa(lvl1);
+    Backtracking::getInstance()->resetAll();
+    int posinicial[2]={1,1};
+    int posfinal[2]={3,1};
+    Backtracking::getInstance()->insertStart(posinicial,posfinal);
+    Backtracking::getInstance()->visit(0,0);
+    if(Backtracking::getInstance()->gethaspath()==true) {
+        std::cout << "Valor de la ruta más corta: " << Backtracking::getInstance()->getshortlenght();
+    }
+    else{
+        std::cout << "no hay ruta: ";
+    }
+*/
+//***********CODIGO FUNCIONAAAAAAAAAAAAAAAL***************
+
     const int fps=60;
     const int frameDelay = 1000/fps;
     Uint32 frameStart;
@@ -91,6 +108,24 @@ int main() {
             SDL_Delay(frameDelay-frametime);
         }
     }
+    game->setRunning(true);
+    game->endScreen();
+    game->renderendScreen();
+    while(game->getrunning()){
+        //cout<<"entre al loop"<<endl;
+        //game->renderendScreen();
+
+        frameStart=SDL_GetTicks();
+        frametime = SDL_GetTicks()-frameStart;
+        if(frameDelay>frametime){
+            //este delay debe de ser ajustado para la velocidad del juego
+            //o las balas.
+            SDL_Delay(frameDelay-frametime);
+        }
+    }
+
     //aca debo de poner lo de que se abra una segunda pantalla del score total.
     return 0;
+    //**********CODIGO FUNCIONAAAAAL****************
+
 }

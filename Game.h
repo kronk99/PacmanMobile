@@ -13,7 +13,8 @@
 //#include "Enemy.h"
 #include "Score.h"
 #include "enemyHndlr.h"
-#include "Vida.h";
+#include "Vida.h"
+#include "Socket.h"
 class Game {
 private:
     bool isRunning;
@@ -26,7 +27,15 @@ private:
     Score *score;
     enemyHndlr *enemigos;
     Vida *vida;
-    bool LOCK;
+    bool LOCK; //una flag que se desactiva cuando hay 200 pts
+    //y se activa cuando el jugador o enemigo tocan el poder.
+    //FOR ENDGAME SCREEN*************
+    TTF_Font *font; //esto es el tipo de fuente para la endscreen
+    SDL_Color Color; //para el endscreen
+    SDL_Texture *scorelbl; //debe decir "el puntaje es"
+    SDL_Texture  *Endgamemsg;
+    SDL_Rect rect1 ,rect2,rect3;
+    Socket* socket;
 
     //enemyList* pruebaenemigo;
 public:
@@ -44,6 +53,11 @@ public:
     void checkScore();
     void checkPcolision();
     void tolvlUp();
+    void setRunning(bool running);
+    //for the endgame screen
+    void endScreen();
+    void renderendScreen();
+    bool getrunning();
 };
 
 

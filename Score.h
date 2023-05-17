@@ -41,6 +41,7 @@ public :
     void renderAll();
     void setPowerstate(bool state);
     void setLevel();
+    int getcurrentscore(); //esto es para endscreen.
 };
 
 
