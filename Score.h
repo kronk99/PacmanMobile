@@ -20,12 +20,15 @@ private :
     SDL_Color Color;
     TTF_Font *font;
     SDL_Texture *texture;
+    SDL_Texture *lvlTexture;
     SDL_Texture *powerTexture;
     SDL_Rect destino;
     SDL_Rect pDestino;
+    SDL_Rect lvlDestino;
     int powerX;
     int powerY;
     bool ispowerAvailable;
+    int level;
 
 public :
     Score(SDL_Renderer *render);
@@ -37,6 +40,7 @@ public :
     int getpowerY();
     void renderAll();
     void setPowerstate(bool state);
+    void setLevel();
 };
 
 

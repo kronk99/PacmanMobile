@@ -175,13 +175,9 @@ void Game::clean() { //limpia la screen , cuando el juego termina.
     cout<<"el juego se ha limpiado"<<endl;
 }
 bool Game::running() {
-    /*
-    if(Fases->wincon() !=0){
-        return isRunning;
+    if(vida->getVida()==0){
+        isRunning=false;
     }
-    else{
-        return false;
-    }*/
     return isRunning;
 }
 bool Game::verifyCollision(int x , int y){
@@ -240,8 +236,8 @@ void Game::PnEcollision(){
                     }
                 }
                 else{
-                    cout<<"el enemigo se come al jugador"<<endl;
-                    //aca quito vidas.
+                    vida->reduceVida();
+                    player->respawn();
                 }
             }
         }
@@ -268,6 +264,8 @@ void Game::checkPcolision() {//POWER COLLISION DETECTION METHOD.
         score->setPowerstate(false);
         player->startimerCount(); //empieza el contador del jugador empoderado
         //creo que al verificar colisiones
+        //MODIFICAR ESTO , QUE CUANDO ESTE EMPDERADO NO CUENTE EL PUNTAJE
+        //PARA SPAWNEAR EL PODER
     }
     if(enemigos->checkPowercollision(score->getpowerX(),score->getpowerY())==true){
         enemigos->spetialEmoves(false);
@@ -287,6 +285,7 @@ void Game::tolvlUp() {
             enemigos->getEnemy(i)->respawn();
             enemigos->getEnemy(i)->startimerCount(2000);
         }
+        score->setLevel();
     }
 
 }

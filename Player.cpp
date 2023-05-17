@@ -6,6 +6,7 @@
 Player::Player(const char* texture , SDL_Renderer* renders) {
     render = renders;
     playerSkin=textureLoader::getTextureloader()->Loadtexture(texture , render);
+    playerpowerSkin=textureLoader::getTextureloader()->Loadtexture("../Textures/powerMage.png",render);
     //SDL_Surface* p= IMG_Load(texture);
     //playerSkin= SDL_CreateTextureFromSurface(render , p);
     //SDL_FreeSurface(p); CAMBIE all this
@@ -32,7 +33,11 @@ void Player::Update() {
     //a eso se le suman 32 para hacer el ancho y largo
 }
 void Player::renderAll() {
-    SDL_RenderCopy(render,playerSkin,&origen,&destino);
+    if (checktimerCount() == false) {
+        SDL_RenderCopy(render, playerSkin, &origen, &destino);
+    } else {
+        SDL_RenderCopy(render, playerpowerSkin, &origen, &destino);
+    }
 }
 void Player::moverRight(){
     posx+=16;
@@ -116,6 +121,28 @@ bool Player::checktimerCount() {
     else{
         return false;
     }
+}
+
+void Player::respawn() {
+    bool spawngood = false;
+    int randomNum;
+    int randomNum2;
+    while (spawngood == false) {
+        random_device rd, dd;
+        std::uniform_int_distribution<int> randomx(0, 21);
+        std::uniform_int_distribution<int> randomy(0, 21);
+        randomNum = randomx(rd);
+        randomNum2 = randomy(dd);
+        if (Map::getInstance()->getMapa(randomNum, randomNum2) != 2 &&
+            Map::getInstance()->getMapa(randomNum, randomNum2) != 3) {
+            spawngood = true;
+
+        }
+    }
+    posx =randomNum2*32;
+    posy = randomNum*32;
+    posCounter=32;
+    posyCounter=32;
 }
 
 

@@ -7,12 +7,15 @@
 #include <SDL2/SDL.h>
 #include "textureLoader.h"
 #include <iostream>
+#include <random>
+#include "Map.h"
 
 class Player {
 private:
     int posx;
     int posy;
     SDL_Texture* playerSkin;
+    SDL_Texture* playerpowerSkin;
     SDL_Rect origen , destino;
     SDL_Renderer* render;
     int posCounter;
@@ -43,6 +46,7 @@ public:
     void setALlposfalse();
     void startimerCount();
     bool checktimerCount();
+    void respawn();
 
 };
 

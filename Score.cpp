@@ -35,10 +35,18 @@ Score::Score(SDL_Renderer *renders) {
     pDestino.w=32;
     pDestino.x=32;
     pDestino.y=32;
+    lvlDestino.x=32;
+    lvlDestino.y=0;
+    lvlDestino.h=32;
+    lvlDestino.w=32;
     cout<<"la textura es"<<powerTexture<<endl;
     //pDestino.x=32;
     //pDestino.y=0;
-//el H y el w se deben de multiplicar por la cantidad de digitos
+    level=Map::getInstance()->getlvl();
+    SDL_Surface *surface2 =TTF_RenderText_Solid(font ,to_string(level).c_str(), Color);
+    lvlTexture =SDL_CreateTextureFromSurface(render,surface2);
+    free(surface2);
+    //el H y el w se deben de multiplicar por la cantidad de digitos
 //que haya en el juego
 }
 
@@ -48,6 +56,7 @@ void Score::renderSCore() {
     texture =SDL_CreateTextureFromSurface(render,surface);
     free(surface);
     SDL_RenderCopy(render,texture,nullptr,&destino);
+    SDL_RenderCopy(render,lvlTexture,nullptr,&lvlDestino);
     //free(texture); este free daña el programa, espero que al no hacer free texture
     //no hayan memory leaks
 }
@@ -100,4 +109,11 @@ void Score::renderAll() {
 
 void Score::setPowerstate(bool state) {
     this->ispowerAvailable = state;
+}
+
+void Score::setLevel() {
+    level = Map::getInstance()->getlvl();
+    SDL_Surface *surface2 =TTF_RenderText_Solid(font ,to_string(level).c_str(), Color);
+    lvlTexture =SDL_CreateTextureFromSurface(render,surface2);
+    free(surface2);
 }

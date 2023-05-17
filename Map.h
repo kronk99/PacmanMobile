@@ -51,6 +51,7 @@ public:
     int getPtolvlUp();
     void minusptolvlUp();
     void lvlUP();
+    int getlvl();
 
 };
 

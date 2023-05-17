@@ -91,5 +91,6 @@ int main() {
             SDL_Delay(frameDelay-frametime);
         }
     }
+    //aca debo de poner lo de que se abra una segunda pantalla del score total.
     return 0;
 }

@@ -264,4 +264,8 @@ void Map::lvlUP() {
 
 }
 
+int Map::getlvl() {
+    return currentLvl;
+}
+
 
