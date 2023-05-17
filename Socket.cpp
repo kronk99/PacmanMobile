@@ -67,7 +67,9 @@ void Socket::socketServer() {
         close(new_socket);
         return;
     }
-    int value = std::stoi(buffer);
+    std::string hola = (std::string) buffer;
+    int value = std::stoi(hola);
+    //std::string hola = (std::string) buffer;
     std::cout << "Mensaje recibido: " << buffer << std::endl;
     switch (value) {
         case 1:

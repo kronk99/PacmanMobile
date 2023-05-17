@@ -56,7 +56,7 @@ void Game::update() {
     //ACTUALIZA LA POSICION Y MOVIMIENTO DE IMAGENES.
     //cout<<"metodo update"<<endl;
     //tolvlUp();
-    //socket->socketServer();
+    socket->socketServer();
     checkScore();
     player->Update();
     enemigos->moveallEnemies(); //ACA ESTA EL ERROR.
