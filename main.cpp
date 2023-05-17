@@ -85,8 +85,8 @@ int main() {
     }
     else{
         std::cout << "no hay ruta: ";
-    }
-*/
+    }*/
+
 //***********CODIGO FUNCIONAAAAAAAAAAAAAAAL***************
 
     const int fps=60;
@@ -127,5 +127,4 @@ int main() {
     //aca debo de poner lo de que se abra una segunda pantalla del score total.
     return 0;
     //**********CODIGO FUNCIONAAAAAL****************
-
 }

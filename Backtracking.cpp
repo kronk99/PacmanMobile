@@ -49,7 +49,6 @@ void Backtracking::visit(int x, int y) {
         std::cout << "Right " << " " << x << " " << y << std::endl;
         // Agregar la cola acá para que agregue la posicion
     }
-
     // Down
     if(canVisit(x, y+1)){
         visit(x, y+1);
